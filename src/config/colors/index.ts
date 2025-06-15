@@ -1,17 +1,17 @@
 // Brand colors for Signs and Graphics Company
 export const colors = {
-  // Primary brand colors - Professional blue scheme
+  // Primary brand colors - Professional red scheme
   primary: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    200: '#bfdbfe',
-    300: '#93c5fd',
-    400: '#60a5fa',
-    500: '#3b82f6',
-    600: '#2563eb',
-    700: '#1d4ed8',
-    800: '#1e40af',
-    900: '#1e3a8a',
+    50: '#fef2f3',
+    100: '#fde2e4',
+    200: '#fbc9cd',
+    300: '#f7a2a9',
+    400: '#f16d7a',
+    500: '#EB2F46',
+    600: '#d91e3a',
+    700: '#b91831',
+    800: '#9a1530',
+    900: '#82152e',
   },
   
   // Secondary colors - Modern grays

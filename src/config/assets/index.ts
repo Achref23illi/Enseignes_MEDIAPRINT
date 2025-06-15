@@ -30,10 +30,10 @@ export const heroCarouselImages = [
   }
 ];
 
-// Other assets can be added here
+// Company Assets
 export const logos = {
   main: '/logo.svg',
-  // Add other logos as needed
+  alt: 'Enseignes MEDIAPRINT - Professional Sign Manufacturing and Installation'
 };
 
 export const icons = {

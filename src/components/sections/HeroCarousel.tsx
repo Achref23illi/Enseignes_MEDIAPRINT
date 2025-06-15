@@ -1,250 +1,297 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { heroCarouselImages } from '@/config/assets';
-import { cn } from '@/utils/cn';
+import Link from 'next/link';
+import { ChevronLeft, ChevronRight, Play, Award, Shield, Clock, ArrowRight } from 'lucide-react';
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const slidesRef = useRef<HTMLDivElement[]>([]);
-  const contentRef = useRef<HTMLDivElement[]>([]);
-  const dotsRef = useRef<HTMLButtonElement[]>([]);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const slides = [
+    {
+      id: 1,
+      title: 'Professional Sign Manufacturing',
+      subtitle: 'Custom designs crafted with precision and quality materials for your business',
+      description: 'Transform your brand visibility with our premium signage solutions, trusted by Montreal businesses for over 30 years.',
+      image: '/carousel1.jpg',
+      buttonText: 'Get Free Quote',
+      buttonLink: '/contact',
+      category: 'Manufacturing Excellence',
+      stats: { value: '1500+', label: 'Signs Installed' }
+    },
+    {
+      id: 2,
+      title: 'Complete Graphics & Printing',
+      subtitle: 'From business cards to large format banners - comprehensive printing solutions',
+      description: 'Full-service printing and graphics solutions with state-of-the-art equipment and premium materials.',
+      image: '/carousel2.jpg',
+      buttonText: 'View Services',
+      buttonLink: '/services',
+      category: 'Digital Solutions',
+      stats: { value: '5000+', label: 'Projects Delivered' }
+    },
+    {
+      id: 3,
+      title: 'Expert Installation Services',
+      subtitle: 'Professional installation and maintenance by certified technicians',
+      description: 'Certified installation teams ensuring perfect placement and long-lasting results for all signage types.',
+      image: '/carousel3.jpg',
+      buttonText: 'Learn More',
+      buttonLink: '/about',
+      category: 'Installation & Service',
+      stats: { value: '24/7', label: 'Support Available' }
+    },
+    {
+      id: 4,
+      title: '30+ Years of Excellence',
+      subtitle: 'Trusted by businesses across Montreal for quality signage and graphics',
+      description: 'Three decades of innovation, quality craftsmanship, and exceptional customer service in the signage industry.',
+      image: '/carousel4.jpg',
+      buttonText: 'Our Legacy',
+      buttonLink: '/achievements',
+      category: 'Industry Leadership',
+      stats: { value: '98%', label: 'Client Satisfaction' }
+    }
+  ];
+
+  // Auto-advance to next slide
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
 
   // Auto-play functionality
   useEffect(() => {
-    if (isAutoPlaying) {
-      intervalRef.current = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % heroCarouselImages.length);
-      }, 5000);
-    }
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000); // Auto-advance every 4 seconds
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isAutoPlaying]);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
-  // Slide transition animation
   useEffect(() => {
-    const tl = gsap.timeline();
-
-    // Animate out current content
-    if (contentRef.current[currentSlide]) {
-      tl.fromTo(contentRef.current[currentSlide].children,
-        { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }
-      );
-    }
-
-    // Update dots
-    dotsRef.current.forEach((dot, index) => {
-      gsap.to(dot, {
-        scale: index === currentSlide ? 1.2 : 1,
-        opacity: index === currentSlide ? 1 : 0.6,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    });
-
-    // Slide transition
-    gsap.to(carouselRef.current, {
-      x: `-${currentSlide * 100}%`,
-      duration: 1,
-      ease: "power3.inOut"
-    });
-  }, [currentSlide]);
+    setIsLoaded(true);
+  }, []);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroCarouselImages.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroCarouselImages.length) % heroCarouselImages.length);
-  };
 
-  const pauseAutoPlay = () => {
-    setIsAutoPlaying(false);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-
-  const resumeAutoPlay = () => {
-    setIsAutoPlaying(true);
-  };
+  const currentSlideData = slides[currentSlide];
 
   return (
-    <section className="relative h-screen overflow-hidden bg-slate-900">
-      {/* Carousel Container */}
-      <div
-        ref={carouselRef}
-        className="flex h-full w-full transition-transform duration-1000 ease-in-out"
-        onMouseEnter={pauseAutoPlay}
-        onMouseLeave={resumeAutoPlay}
-      >
-        {heroCarouselImages.map((image, index) => (
-          <div
-            key={image.id}
-            ref={(el) => {
-              if (el) slidesRef.current[index] = el;
-            }}
-            className="relative min-w-full h-full"
-          >
-            {/* Background Image */}
-            <div className="absolute inset-0">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={90}
-              />
-              {/* Overlay Gradients */}
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/20"></div>
+    <section 
+      className="relative h-screen min-h-[700px] overflow-hidden bg-gray-900"
+    >
+      {/* Background Image with Parallax Effect */}
+      <div className="absolute inset-0">
+        <div className="relative w-full h-full">
+          <Image
+            src={currentSlideData.image}
+            alt={currentSlideData.title}
+            fill
+            className="object-cover transition-all duration-1000 ease-out scale-105"
+            priority
+            quality={95}
+          />
+          {/* Professional Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Content Column */}
+            <div className="lg:col-span-7 space-y-8">
+              {/* Category Badge */}
+              <div className={`inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <div className="w-2 h-2 rounded-full mr-2 animate-pulse" style={{backgroundColor: '#f16d7a'}}></div>
+                {currentSlideData.category}
+              </div>
+
+              {/* Main Heading */}
+              <div className="space-y-4">
+                <h1 className={`text-5xl lg:text-7xl font-bold text-white leading-tight transition-all duration-700 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                  {currentSlideData.title}
+                </h1>
+                <p className={`text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-2xl transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                  {currentSlideData.subtitle}
+                </p>
+                <p className={`text-lg text-gray-300 leading-relaxed max-w-xl transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                  {currentSlideData.description}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <Link
+                  href={currentSlideData.buttonLink}
+                  className="group inline-flex items-center justify-center px-8 py-4 text-white text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  style={{backgroundColor: '#EB2F46'}}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f16d7a'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EB2F46'}
+                >
+                  {currentSlideData.buttonText}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="group inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 backdrop-blur-sm"
+                >
+                  <Play className="mr-2 w-5 h-5" />
+                  Watch Our Work
+                </Link>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className={`flex items-center space-x-8 pt-4 transition-all duration-700 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <div className="flex items-center space-x-2 text-white/80">
+                  <Award className="w-5 h-5" style={{color: '#f16d7a'}} />
+                  <span className="text-sm font-medium">Industry Leader</span>
+                </div>
+                <div className="flex items-center space-x-2 text-white/80">
+                  <Shield className="w-5 h-5" style={{color: '#f16d7a'}} />
+                  <span className="text-sm font-medium">Certified Installers</span>
+                </div>
+                <div className="flex items-center space-x-2 text-white/80">
+                  <Clock className="w-5 h-5" style={{color: '#f16d7a'}} />
+                  <span className="text-sm font-medium">30+ Years Experience</span>
+                </div>
+              </div>
             </div>
 
-            {/* Content */}
-            <div className="relative z-10 h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div
-                  ref={(el) => {
-                    if (el) contentRef.current[index] = el;
-                  }}
-                  className="max-w-3xl"
-                >
-                  {/* Main Title */}
-                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-manrope font-800 text-white mb-6 leading-tight">
-                    <span className="block bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
-                      {image.title}
-                    </span>
-                  </h1>
-
-                  {/* Subtitle */}
-                  <p className="text-xl md:text-2xl lg:text-3xl font-manrope font-400 text-blue-100 mb-8 leading-relaxed max-w-2xl">
-                    {image.subtitle}
-                  </p>
-
-                  {/* CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                    <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-manrope font-600 text-lg rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 transform hover:scale-105">
-                      <span className="relative z-10">Get Free Quote</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </button>
-                    
-                    <button className="group px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-manrope font-600 text-lg rounded-2xl border-2 border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 transform hover:scale-105">
-                      <span className="flex items-center space-x-2">
-                        <span>View Our Work</span>
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
-                    </button>
+            {/* Stats Column */}
+            <div className="lg:col-span-5 lg:justify-self-end">
+              <div className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 transition-all duration-700 delay-600 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+                <div className="text-center space-y-4">
+                  <div className="text-5xl font-bold text-white">
+                    {currentSlideData.stats.value}
                   </div>
+                  <div className="text-gray-300 font-medium">
+                    {currentSlideData.stats.label}
+                  </div>
+                  <div className="w-16 h-1 mx-auto rounded-full" style={{backgroundColor: '#f16d7a'}}></div>
+                </div>
 
-                  {/* Stats */}
-                  <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/20">
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-manrope font-800 text-white mb-1">1500+</div>
-                      <div className="text-sm font-manrope font-500 text-blue-200 uppercase tracking-wider">Projects</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-manrope font-800 text-white mb-1">30+</div>
-                      <div className="text-sm font-manrope font-500 text-blue-200 uppercase tracking-wider">Years</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-manrope font-800 text-white mb-1">98%</div>
-                      <div className="text-sm font-manrope font-500 text-blue-200 uppercase tracking-wider">Satisfaction</div>
-                    </div>
+                {/* Quick Contact */}
+                <div className="mt-8 pt-6 border-t border-white/20">
+                  <div className="text-center space-y-3">
+                    <p className="text-gray-300 text-sm">Ready to get started?</p>
+                    <Link
+                      href="tel:+15141234567"
+                      className="block text-white font-semibold text-lg transition-colors duration-300"
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#f16d7a'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+                    >
+                      (514) 123-4567
+                    </Link>
+                    <p className="text-gray-400 text-xs">Free consultation available</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 md:p-4 bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 group"
-        aria-label="Previous slide"
-      >
-        <svg className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 md:p-4 bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/20 hover:bg-white/20 hover:scale-110 transition-all duration-300 group"
-        aria-label="Next slide"
-      >
-        <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
-        {heroCarouselImages.map((_, index) => (
-          <button
-            key={index}
-            ref={(el) => {
-              if (el) dotsRef.current[index] = el;
-            }}
-            onClick={() => goToSlide(index)}
-            className={cn(
-              "w-3 h-3 rounded-full transition-all duration-300 border-2",
-              currentSlide === index
-                ? "bg-white border-white scale-125"
-                : "bg-white/30 border-white/50 hover:bg-white/50"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Auto-play Indicator */}
-      <div className="absolute top-8 right-8 z-20 flex items-center space-x-2">
+      {/* Navigation Controls */}
+      <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-6 lg:px-8 pointer-events-none">
         <button
-          onClick={isAutoPlaying ? pauseAutoPlay : resumeAutoPlay}
-          className="p-2 bg-white/10 backdrop-blur-sm text-white rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
-          aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+          onClick={prevSlide}
+          className="pointer-events-auto p-4 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110 border border-white/20"
+          aria-label="Previous slide"
         >
-          {isAutoPlaying ? (
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-            </svg>
-          ) : (
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          )}
+          <ChevronLeft className="w-6 h-6" />
         </button>
-        <div className="text-white/70 text-sm font-manrope">
-          {currentSlide + 1} / {heroCarouselImages.length}
+
+        <button
+          onClick={nextSlide}
+          className="pointer-events-auto p-4 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110 border border-white/20"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+        <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`relative transition-all duration-300 ${
+                currentSlide === index
+                  ? "w-8 h-3 rounded-full"
+                  : "w-3 h-3 bg-white/40 rounded-full hover:bg-white/60"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              {currentSlide === index && (
+                <div className="absolute inset-0 rounded-full animate-pulse" style={{backgroundColor: '#f16d7a'}}></div>
+              )}
+            </button>
+          ))}
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
-        <div 
-          className="h-full bg-gradient-to-r from-blue-400 to-blue-500 transition-all duration-300"
-          style={{ width: `${((currentSlide + 1) / heroCarouselImages.length) * 100}%` }}
-        />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+                  <div 
+           className="h-full transition-all duration-300 relative overflow-hidden"
+           style={{
+             background: 'linear-gradient(to right, #f16d7a, #EB2F46)',
+             width: `${((currentSlide + 1) / slides.length) * 100}%`
+           }}
+        >
+          <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+        </div>
       </div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-1/4 right-8 hidden xl:block">
+        <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20 animate-float">
+                     <div className="text-white text-sm font-medium">Montreal&apos;s #1</div>
+          <div className="text-xs" style={{color: '#f16d7a'}}>Sign Company</div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-1/4 left-8 hidden xl:block">
+        <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20 animate-float-delayed">
+          <div className="text-white text-sm font-medium">ISO Certified</div>
+          <div className="text-xs" style={{color: '#f16d7a'}}>Quality Assured</div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes float-delayed {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+          animation: float-delayed 3s ease-in-out infinite 1.5s;
+        }
+      `}</style>
     </section>
   );
 };

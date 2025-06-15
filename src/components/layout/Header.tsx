@@ -1,323 +1,259 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/utils/cn'
-import { gsap } from 'gsap'
+import { Phone, MapPin, Clock, Mail } from 'lucide-react'
+import { logos } from '@/config/assets'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const headerRef = useRef<HTMLElement>(null)
-  const logoRef = useRef<HTMLDivElement>(null)
-  const navItemsRef = useRef<HTMLUListElement>(null)
-  const langButtonRef = useRef<HTMLButtonElement>(null)
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 10)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    // Header entrance animation
-    const tl = gsap.timeline()
-    
-    tl.fromTo(headerRef.current, 
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-    )
-    .fromTo(logoRef.current,
-      { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-      "-=0.4"
-    )
-    .fromTo(navItemsRef.current?.children || [],
-      { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-      "-=0.4"
-    )
-    .fromTo(langButtonRef.current,
-      { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" },
-      "-=0.2"
-    )
-
-    // Nav item hover animations
-    const navItems = navItemsRef.current?.querySelectorAll('li')
-    navItems?.forEach(item => {
-      const link = item.querySelector('a')
-      if (link) {
-        gsap.set(link, { position: 'relative' })
-        
-        item.addEventListener('mouseenter', () => {
-          gsap.to(link, { y: -2, duration: 0.3, ease: "power2.out" })
-        })
-        
-        item.addEventListener('mouseleave', () => {
-          gsap.to(link, { y: 0, duration: 0.3, ease: "power2.out" })
-        })
-      }
-    })
-
-    // Logo hover animation
-    if (logoRef.current) {
-      logoRef.current.addEventListener('mouseenter', () => {
-        gsap.to(logoRef.current, { 
-          scale: 1.05, 
-          duration: 0.3, 
-          ease: "power2.out" 
-        })
-      })
-      
-      logoRef.current.addEventListener('mouseleave', () => {
-        gsap.to(logoRef.current, { 
-          scale: 1, 
-          duration: 0.3, 
-          ease: "power2.out" 
-        })
-      })
-    }
-
-    // Language button hover animation
-    if (langButtonRef.current) {
-      langButtonRef.current.addEventListener('mouseenter', () => {
-        gsap.to(langButtonRef.current, { 
-          scale: 1.1, 
-          rotate: 2,
-          duration: 0.3, 
-          ease: "power2.out" 
-        })
-      })
-      
-      langButtonRef.current.addEventListener('mouseleave', () => {
-        gsap.to(langButtonRef.current, { 
-          scale: 1, 
-          rotate: 0,
-          duration: 0.3, 
-          ease: "power2.out" 
-        })
-      })
-    }
-  }, [])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-    
-    if (!isMenuOpen) {
-      // Open animation
-      gsap.fromTo(mobileMenuRef.current,
-        { opacity: 0, y: -20, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "power3.out" }
-      )
-      
-      const menuItems = mobileMenuRef.current?.querySelectorAll('.mobile-nav-item')
-      gsap.fromTo(menuItems || [],
-        { x: -30, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.3, stagger: 0.08, delay: 0.1, ease: "power2.out" }
-      )
-    } else {
-      // Close animation
-      gsap.to(mobileMenuRef.current, {
-        opacity: 0,
-        y: -20,
-        scale: 0.95,
-        duration: 0.3,
-        ease: "power2.in"
-      })
-    }
-  }
-
   const navItems = [
-    { label: 'HOME', href: '/' },
-    { label: 'ABOUT US', href: '/about' },
-    { label: 'OUR SERVICES', href: '/services' },
-    { label: 'OUR ACHIEVEMENTS', href: '/achievements' },
-    { label: 'CONTACT', href: '/contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Our Services', href: '/services' },
+    { label: 'Our Achievements', href: '/achievements' },
+    { label: 'Contact', href: '/contact' },
   ]
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-3 border-b border-slate-700/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm font-manrope">
-            <div className="flex items-center space-x-6 mb-2 sm:mb-0">
+      {/* Top Professional Contact Bar */}
+      <div className="bg-gray-900 text-white relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='10' cy='10' r='1'/%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="flex flex-col lg:flex-row justify-between items-center text-sm py-3">
+            
+            {/* Left side - Contact Info */}
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-8 mb-2 lg:mb-0">
               <div className="flex items-center space-x-2 group">
-                <svg className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="text-slate-300 group-hover:text-white transition-colors">
+                <MapPin className="w-4 h-4 transition-colors group-hover:text-red-300" style={{color: '#f16d7a'}} />
+                <span className="text-gray-300 group-hover:text-white transition-colors">
                   6913 Rue Jarry E, Saint-Léonard, QC H1P 1W7
                 </span>
               </div>
+              <div className="flex items-center space-x-2 group">
+                <Clock className="w-4 h-4 transition-colors group-hover:text-red-300" style={{color: '#f16d7a'}} />
+                <span className="text-gray-300 group-hover:text-white transition-colors">
+                  Mon-Fri: 8AM-6PM | Emergency 24/7
+                </span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2 group">
-              <svg className="w-4 h-4 text-green-400 group-hover:text-green-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <a href="tel:5143295757" className="text-slate-300 group-hover:text-white transition-colors font-medium">
-                (514) 329-5757
+
+            {/* Right side - Contact Actions */}
+            <div className="flex items-center space-x-6">
+              <a 
+                href="mailto:info@mediaprint.ca" 
+                className="flex items-center space-x-2 text-gray-300 transition-colors group"
+                onMouseEnter={(e) => e.currentTarget.style.color = '#f16d7a'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#d1d5db'}
+              >
+                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="hidden sm:inline">info@mediaprint.ca</span>
+              </a>
+              <a 
+                href="tel:5143295757" 
+                className="flex items-center space-x-2 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                style={{backgroundColor: '#EB2F46'}}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f16d7a'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EB2F46'}
+              >
+                <Phone className="w-4 h-4" />
+                <span>(514) 329-5757</span>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Professional Header */}
       <header
-        ref={headerRef}
         className={cn(
-          "sticky top-0 z-50 transition-all duration-500 ease-out",
+          "sticky top-0 z-50 transition-all duration-500 border-b border-gray-100",
           isScrolled 
-            ? "bg-white/95 backdrop-blur-xl shadow-lg shadow-slate-900/5 border-b border-slate-200/50" 
-            : "bg-white/90 backdrop-blur-sm"
+            ? "bg-white/95 backdrop-blur-md shadow-lg shadow-gray-900/5" 
+            : "bg-white"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex justify-between items-center py-4">
             
             {/* Logo Section */}
-            <div ref={logoRef} className="flex items-center cursor-pointer">
-              {/* Logo Icon */}
-              <div className="relative mr-4">
-                <div className="grid grid-cols-2 gap-1">
-                  <div className="w-3 h-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-sm transform rotate-3"></div>
-                  <div className="w-3 h-3 bg-gradient-to-br from-orange-500 to-orange-600 rounded-sm transform -rotate-2"></div>
-                  <div className="w-3 h-3 bg-gradient-to-br from-green-500 to-green-600 rounded-sm transform -rotate-1"></div>
-                  <div className="w-3 h-3 bg-gradient-to-br from-purple-500 to-purple-600 rounded-sm transform rotate-2"></div>
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
+            <Link href="/" className="flex items-center group">
+              <div className="relative">
+                <Image
+                  src={logos.main}
+                  alt={logos.alt}
+                  width={400}
+                  height={140}
+                  className={cn(
+                    "w-auto transition-all duration-300",
+                    isScrolled ? "h-16" : "h-20"
+                  )}
+                  priority
+                />
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 rounded-lg transition-all duration-300 group-hover:bg-red-50"></div>
               </div>
-              
-              {/* Logo Text */}
-              <div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-manrope font-800 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent leading-tight">
-                    Enseignes
-                  </span>
-                  <span className="text-2xl font-manrope font-800 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent leading-tight -mt-1">
-                    MEDIAPRINT
-                  </span>
-                </div>
-                <div className="flex items-center space-x-1 mt-1">
-                  <span className="text-xs font-manrope font-500 text-slate-500 tracking-wider uppercase">design</span>
-                  <span className="w-1 h-1 bg-slate-400 rounded-full"></span>
-                  <span className="text-xs font-manrope font-500 text-slate-500 tracking-wider uppercase">manufacture</span>
-                  <span className="w-1 h-1 bg-slate-400 rounded-full"></span>
-                  <span className="text-xs font-manrope font-500 text-slate-500 tracking-wider uppercase">installation</span>
-                  <span className="w-1 h-1 bg-slate-400 rounded-full"></span>
-                  <span className="text-xs font-manrope font-500 text-slate-500 tracking-wider uppercase">repair</span>
-                </div>
-              </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <ul ref={navItemsRef} className="flex items-center space-x-8">
-                {navItems.map((item, index) => (
-                  <li key={index} className="relative group">
-                    <Link
-                      href={item.href}
-                      className="text-sm font-manrope font-600 text-slate-700 hover:text-blue-600 transition-all duration-300 tracking-wide relative py-2"
-                    >
-                      {item.label}
-                      <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="relative px-4 py-2 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all duration-300 rounded-lg hover:bg-gray-50 group"
+                >
+                  {item.label}
+                  <span className="absolute inset-x-4 -bottom-0.5 h-0.5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" style={{backgroundColor: '#f16d7a'}}></span>
+                </Link>
+              ))}
+            </nav>
+
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center space-x-4">
               
               {/* Language Selector */}
-              <button
-                ref={langButtonRef}
-                className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2.5 rounded-xl font-manrope font-600 text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 border border-blue-500/20"
+              <div className="flex items-center bg-gray-50 rounded-lg p-1">
+                <button className="px-3 py-1.5 text-xs font-semibold text-gray-900 bg-white rounded-md shadow-sm">
+                  EN
+                </button>
+                <button className="px-3 py-1.5 text-xs font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                  FR
+                </button>
+              </div>
+
+              {/* Professional CTA */}
+              <Link
+                href="/contact"
+                className="text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2 group"
+                style={{backgroundColor: '#EB2F46'}}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b91831'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EB2F46'}
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                <span>Get Free Quote</span>
+                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-                <span>EN / FR</span>
-              </button>
-            </nav>
+              </Link>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
-              onClick={toggleMenu}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2.5 rounded-xl hover:bg-gray-100 transition-all duration-300 group"
               aria-label="Toggle mobile menu"
-              className="lg:hidden p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors duration-200 border border-slate-200"
             >
-              <div className="relative w-5 h-5">
+              <div className="relative w-6 h-6">
                 <span className={cn(
-                  "absolute top-0 left-0 w-5 h-0.5 bg-slate-700 transition-all duration-300",
-                  isMenuOpen ? "rotate-45 top-2" : ""
+                  "absolute block h-0.5 w-6 bg-gray-700 transform transition-all duration-300",
+                  isMenuOpen ? "rotate-45 top-3" : "top-1"
                 )}></span>
                 <span className={cn(
-                  "absolute top-2 left-0 w-5 h-0.5 bg-slate-700 transition-all duration-300",
-                  isMenuOpen ? "opacity-0" : ""
+                  "absolute block h-0.5 w-6 bg-gray-700 transform transition-all duration-300 top-3",
+                  isMenuOpen ? "opacity-0" : "opacity-100"
                 )}></span>
                 <span className={cn(
-                  "absolute top-4 left-0 w-5 h-0.5 bg-slate-700 transition-all duration-300",
-                  isMenuOpen ? "-rotate-45 top-2" : ""
+                  "absolute block h-0.5 w-6 bg-gray-700 transform transition-all duration-300",
+                  isMenuOpen ? "-rotate-45 top-3" : "top-5"
                 )}></span>
               </div>
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-200/50 shadow-xl shadow-slate-900/5"
-          >
+        {/* Professional Mobile Menu */}
+        <div className={cn(
+          "lg:hidden overflow-hidden transition-all duration-500 border-t border-gray-100",
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        )}>
+          <div className="bg-white/95 backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-4 py-6">
-              <nav className="space-y-4">
+              
+              {/* Mobile Navigation */}
+              <nav className="space-y-2 mb-6">
                 {navItems.map((item, index) => (
                   <Link
                     key={index}
                     href={item.href}
-                    className="mobile-nav-item block py-3 px-4 text-slate-700 hover:text-blue-600 hover:bg-blue-50/50 rounded-xl transition-all duration-200 font-manrope font-600 text-base"
+                    className="block py-3 px-4 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-xl transition-all duration-300 font-medium group"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.label}
+                    <div className="flex items-center justify-between">
+                      <span>{item.label}</span>
+                      <svg className="w-4 h-4 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </Link>
                 ))}
+              </nav>
+              
+              {/* Mobile Actions */}
+              <div className="space-y-4 pt-6 border-t border-gray-100">
                 
-                {/* Mobile Contact Info */}
-                <div className="pt-4 mt-4 border-t border-slate-200">
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-3 px-4">
-                      <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="text-sm text-slate-600 font-manrope">6913 Rue Jarry E, Saint-Léonard</span>
-                    </div>
-                    <div className="flex items-center space-x-3 px-4">
-                      <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <a href="tel:5143295757" className="text-sm text-slate-600 font-manrope font-600">(514) 329-5757</a>
-                    </div>
-                  </div>
-                  
-                  {/* Mobile Language Selector */}
-                  <button className="w-full mt-4 flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-manrope font-600 text-sm shadow-lg">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                    </svg>
-                    <span>EN / FR</span>
+                {/* Language Selector */}
+                <div className="flex items-center justify-center bg-gray-50 rounded-xl p-1">
+                  <button className="flex-1 py-2.5 text-sm font-semibold text-gray-900 bg-white rounded-lg shadow-sm">
+                    English
+                  </button>
+                  <button className="flex-1 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                    Français
                   </button>
                 </div>
-              </nav>
+
+                {/* Mobile CTA */}
+                <Link
+                  href="/contact"
+                  className="block bg-gray-900 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 text-center group"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="flex items-center justify-center space-x-2">
+                    <span>Get Free Quote</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </Link>
+
+                {/* Mobile Contact Info */}
+                <div className="bg-gray-50 rounded-xl p-4 space-y-3">
+                  <div className="text-center">
+                    <div className="text-sm font-semibold text-gray-900 mb-2">Contact Us Directly</div>
+                    <a 
+                      href="tel:5143295757" 
+                      className="inline-flex items-center space-x-2 font-semibold"
+                      style={{color: '#d91e3a'}}
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>(514) 329-5757</span>
+                    </a>
+                  </div>
+                  <div className="text-center text-xs text-gray-500">
+                    Emergency service available 24/7
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </header>
     </>
   )

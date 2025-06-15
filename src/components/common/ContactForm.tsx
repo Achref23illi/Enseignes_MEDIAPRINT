@@ -131,7 +131,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <span className="text-white text-xl">📧</span>
                 </div>
                 <div>
@@ -151,19 +151,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
               <h3 className="font-semibold text-secondary-900 mb-4">Why Choose Us?</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center space-x-2">
-                  <span className="text-green-500">✓</span>
+                  <span className="text-primary-500">✓</span>
                   <span className="text-sm text-secondary-700">Free Consultation</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-green-500">✓</span>
+                  <span className="text-primary-500">✓</span>
                   <span className="text-sm text-secondary-700">5-Year Warranty</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-green-500">✓</span>
+                  <span className="text-primary-500">✓</span>
                   <span className="text-sm text-secondary-700">Licensed & Insured</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="text-green-500">✓</span>
+                  <span className="text-primary-500">✓</span>
                   <span className="text-sm text-secondary-700">24/7 Emergency</span>
                 </div>
               </div>
@@ -291,8 +291,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
               </div>
 
               {submitStatus === 'success' && (
-                <div className="p-4 bg-green-100 border border-green-200 rounded-lg">
-                  <p className="text-green-800 font-medium">Thank you! We'll contact you within 24 hours.</p>
+                <div className="p-4 bg-primary-100 border border-primary-200 rounded-lg">
+                  <p className="text-primary-800 font-medium">Thank you! We'll contact you within 24 hours.</p>
                 </div>
               )}
 

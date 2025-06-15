@@ -209,7 +209,7 @@ const AboutPage = () => {
                 This passion drives us to continuously innovate and exceed expectations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-colors duration-300" style={{backgroundColor: '#EB2F46'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#f16d7a'} onMouseLeave={(e) => e.target.style.backgroundColor = '#EB2F46'}>
+                <button className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-colors duration-300" style={{backgroundColor: '#EB2F46'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f16d7a'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EB2F46'}>
                   Learn More About Us
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </button>
@@ -347,7 +347,7 @@ const AboutPage = () => {
             Let's discuss how our 30 years of expertise can help elevate your business presence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                          <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#EB2F46'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#f16d7a'} onMouseLeave={(e) => e.target.style.backgroundColor = '#EB2F46'}>
+                          <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#EB2F46'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f16d7a'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EB2F46'}>
               Get Free Consultation
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>

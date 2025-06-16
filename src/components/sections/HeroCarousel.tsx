@@ -16,16 +16,16 @@ const HeroCarousel = () => {
     <section className="relative h-screen min-h-[700px] overflow-hidden bg-gray-900">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          src="/video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/carousel1.jpg"
-        />
+        <div style={{position:'relative', width:'100%', height:'0px', paddingBottom:'56.250%'}}>
+          <iframe
+            allow="fullscreen;autoplay"
+            allowFullScreen
+            height="100%"
+            src="https://streamable.com/e/6zgaif?autoplay=1&muted=1"
+            width="100%"
+            style={{border:'none', width:'100%', height:'100%', position:'absolute', left:0, top:0, overflow:'hidden'}}
+          ></iframe>
+        </div>
         <div className="absolute inset-0 bg-black/80"></div>
       </div>
 

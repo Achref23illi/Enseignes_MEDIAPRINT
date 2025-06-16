@@ -14,7 +14,7 @@ export default function HomePage() {
       {/* Hero Carousel Section */}
       <HeroCarousel />
 
-      {/* Services Overview Section */}
+      {/* Services Overview Section  */}
       <ServicesOverview />
 
       {/* Stats Section */}

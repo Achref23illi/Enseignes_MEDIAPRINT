@@ -13,7 +13,7 @@ const heroContent = {
 
 const HeroCarousel = () => {
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden bg-gray-900">
+    <section className="relative h-screen min-h-[700px] overflow-hidden bg-gray-800">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video

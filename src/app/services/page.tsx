@@ -75,7 +75,7 @@ const ServicesPage = () => {
       features: [
         "Conversion DEL depuis fluorescent",
         "Dépannage et réparation électrique",
-        "Service d'urgence 24/7",
+        "Services d'urgence disponible 7/7",
         "Programmes d'entretien préventif"
       ],
       image: "/carousel3.jpg",
@@ -119,19 +119,19 @@ const ServicesPage = () => {
           <div className="text-center">
             {/* Badge */}
             <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
-              <Award className="w-5 h-5 mr-2" style={{color: '#f16d7a'}} />
+              <Award className="w-5 h-5 mr-2" style={{color: '#32B8F1'}} />
               <span className="text-white font-medium">Services professionnels</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Solutions d'enseignes
+              Solutions d&apos;enseignes
               <br />
-              <span style={{color: '#f16d7a'}}>complètes</span>
+              <span style={{color: '#32B8F1'}}>complètes</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Quatre services complets couvrant chaque étape de votre projet d'enseigne, de la création à l'installation et au support continu.
+              Quatre services complets couvrant chaque étape de votre projet d&apos;enseigne, de la création à l&apos;installation et au support continu.
             </p>
 
             {/* Service Navigation Tabs */}
@@ -159,14 +159,14 @@ const ServicesPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-2">30+</div>
-                <div className="text-gray-400 text-sm">Années d'expérience</div>
+                <div className="text-gray-400 text-sm">Années d&apos;expérience</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-2">1500+</div>
                 <div className="text-gray-400 text-sm">Projets réalisés</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">24/7</div>
+                <div className="text-3xl font-bold text-white mb-2">7/7</div>
                 <div className="text-gray-400 text-sm">Support</div>
               </div>
               <div className="text-center">
@@ -234,10 +234,10 @@ const ServicesPage = () => {
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-lg font-medium" style={{color: '#d91e3a'}}>
+                      <p className="text-lg font-medium" style={{color: '#1578a9'}}>
                         {service.subtitle}
                       </p>
-                      <div className="w-12 h-1 mt-3" style={{backgroundColor: '#f16d7a'}}></div>
+                      <div className="w-12 h-1 mt-3" style={{backgroundColor: '#32B8F1'}}></div>
                     </div>
 
                     <p className="text-gray-600 mb-6 leading-relaxed">
@@ -255,9 +255,12 @@ const ServicesPage = () => {
                     </div>
 
                     {/* CTA */}
-                    <Link
+                                          <Link
                       href="/contact"
-                      className="inline-flex items-center text-gray-900 font-semibold hover:text-red-600 transition-colors group"
+                      className="inline-flex items-center text-gray-900 font-semibold transition-colors group"
+                      style={{'--hover-color': '#32B8F1'} as React.CSSProperties}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#32B8F1'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}
                     >
                       En savoir plus
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -281,28 +284,28 @@ const ServicesPage = () => {
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                   Pourquoi choisir
                   <br />
-                  <span style={{color: '#EB2F46'}}>Enseignes Mediaprint ?</span>
+                  <span style={{color: '#32B8F1'}}>Enseignes Mediaprint ?</span>
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Trois décennies d'expérience, technologie de pointe et engagement envers la qualité font de nous le partenaire de confiance à Montréal.
+                  Trois décennies d&apos;expérience, technologie de pointe et engagement envers la qualité font de nous le partenaire de confiance à Montréal.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                      <Award className="w-6 h-6 text-blue-600" />
+                                      <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#dff2fd'}}>
+                      <Award className="w-6 h-6" style={{color: '#1578a9'}} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Expertise sectorielle</h4>
-                      <p className="text-sm text-gray-600">30+ ans d'excellence en enseignes</p>
+                      <p className="text-sm text-gray-600">30+ ans d&apos;excellence en enseignes</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-green-600" />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#dff2fd'}}>
+                      <Shield className="w-6 h-6" style={{color: '#1578a9'}} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Qualité garantie</h4>
@@ -313,18 +316,18 @@ const ServicesPage = () => {
 
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center">
-                      <Users className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#dff2fd'}}>
+                      <Users className="w-6 h-6" style={{color: '#1578a9'}} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Équipe d'experts</h4>
+                      <h4 className="font-semibold text-gray-900">Équipe d&apos;experts</h4>
                       <p className="text-sm text-gray-600">Professionnels qualifiés à votre service</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center">
-                      <Star className="w-6 h-6 text-purple-600" />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#dff2fd'}}>
+                      <Star className="w-6 h-6" style={{color: '#1578a9'}} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Satisfaction client</h4>
@@ -338,7 +341,7 @@ const ServicesPage = () => {
                 <Link
                   href="/about"
                   className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-                  style={{backgroundColor: '#EB2F46'}}
+                  style={{backgroundColor: '#FC32A2'}}
                 >
                   En savoir plus sur notre entreprise
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -377,7 +380,7 @@ const ServicesPage = () => {
               Notre processus simplifié
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              De la première rencontre à l'installation finale, nous simplifions la signalisation
+              De la première rencontre à l&apos;installation finale, nous simplifions la signalisation
             </p>
           </div>
 
@@ -402,7 +405,7 @@ const ServicesPage = () => {
             <Link
               href="/contact"
               className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-              style={{backgroundColor: '#EB2F46'}}
+              style={{backgroundColor: '#FC32A2'}}
             >
               Démarrer votre projet
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -424,31 +427,31 @@ const ServicesPage = () => {
                     Prêt à démarrer ?
                   </h2>
                   <p className="text-lg text-gray-300">
-                    Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nous pouvons transformer votre entreprise avec une signalisation professionnelle.
+                    Contactez-nous dès aujourd&apos;hui pour une consultation gratuite et découvrez comment nous pouvons transformer votre entreprise avec une signalisation professionnelle.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
-                    <Phone className="w-6 h-6" style={{color: '#f16d7a'}} />
+                    <Phone className="w-6 h-6" style={{color: '#32B8F1'}} />
                     <div>
                       <div className="text-white font-semibold">Appelez-nous</div>
-                      <Link href="tel:+15143295757" className="text-gray-300 hover:text-white transition-colors">
-                        +1 514 329 5757
-                      </Link>
+                                              <Link href="tel:+15146912512" className="text-gray-300 hover:text-white transition-colors">
+                          +1 (514) 691-2512
+                        </Link>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4">
-                    <Mail className="w-6 h-6" style={{color: '#f16d7a'}} />
+                    <Mail className="w-6 h-6" style={{color: '#32B8F1'}} />
                     <div>
                       <div className="text-white font-semibold">Envoyez-nous un e-mail</div>
-                      <div className="text-gray-300">info@enseignesmediaprint.com</div>
+                                              <div className="text-gray-300">enseignesmediaprint@gmail.com</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center space-x-4">
-                    <MapPin className="w-6 h-6" style={{color: '#f16d7a'}} />
+                    <MapPin className="w-6 h-6" style={{color: '#32B8F1'}} />
                     <div>
                       <div className="text-white font-semibold">Venez nous voir</div>
                       <div className="text-gray-300">6913 RUE JARRY E, SAINT-LÉONARD, QC</div>
@@ -464,21 +467,21 @@ const ServicesPage = () => {
                     Consultation gratuite disponible
                   </h3>
                   <p className="text-gray-300 mb-6 text-sm">
-                    Obtenez des conseils d'experts et un devis détaillé pour votre projet d'enseigne.
+                    Obtenez des conseils d&apos;experts et un devis détaillé pour votre projet d&apos;enseigne.
                   </p>
                   
                   <div className="space-y-3">
                     <Link
                       href="/contact"
                       className="w-full inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-                      style={{backgroundColor: '#EB2F46'}}
+                      style={{backgroundColor: '#FC32A2'}}
                     >
                       <Mail className="w-5 h-5 mr-2" />
                       Get Free Quote
                     </Link>
                     
                     <Link
-                      href="tel:+15143295757"
+                      href="tel:+15146912512"
                       className="w-full inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
                     >
                       <Phone className="w-5 h-5 mr-2" />
@@ -488,8 +491,8 @@ const ServicesPage = () => {
 
                   {/* Emergency Badge */}
                   <div className="mt-6 text-center">
-                    <span className="inline-flex items-center px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm border border-red-500/30">
-                      ⚡ Service d'urgence 24/7
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm border" style={{backgroundColor: 'rgba(50, 184, 241, 0.2)', color: '#32B8F1', borderColor: 'rgba(50, 184, 241, 0.3)'}}>
+                      ⚡ Services d&apos;urgence disponible 7/7
                     </span>
                   </div>
                 </div>

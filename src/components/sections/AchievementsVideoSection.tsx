@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Play, Award, Users, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Award, Users, Calendar, MapPin, ArrowRight } from 'lucide-react';
 
 const AchievementsVideoSection = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const achievements = [
     {
@@ -23,7 +22,7 @@ const AchievementsVideoSection = () => {
       icon: Calendar,
       number: "30+",
       title: "Années d'expérience",
-      description: "Leader du secteur depuis 1993"
+      description: "Leader du secteur depuis 2013"
     },
     {
       icon: MapPin,
@@ -59,15 +58,15 @@ const AchievementsVideoSection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4" style={{backgroundColor: '#fde2e4', color: '#9a1530'}}>
+          <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4" style={{backgroundColor: '#dff2fd', color: '#1578a9'}}>
             <Award className="w-4 h-4 mr-2" />
             Nos réalisations
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Trois décennies d'excellence
+            Trois décennies d&apos;excellence
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Découvrez notre parcours de transformation du paysage commercial montréalais avec des solutions d'enseignes haut de gamme, projet après projet.
+            Découvrez notre parcours de transformation du paysage commercial montréalais avec des solutions d&apos;enseignes haut de gamme, projet après projet.
           </p>
         </div>
 
@@ -92,8 +91,8 @@ const AchievementsVideoSection = () => {
                 <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg px-3 py-2">
                   <span className="text-white text-sm font-medium">Qualité HD</span>
                 </div>
-                <div className="absolute top-4 right-4 rounded-lg px-3 py-2" style={{backgroundColor: '#EB2F46'}}>
-                  <span className="text-black text-sm font-medium">● Présentation de l'entreprise</span>
+                <div className="absolute top-4 right-4 rounded-lg px-3 py-2" style={{backgroundColor: '#32B8F1'}}>
+                  <span className="text-white text-sm font-medium">● Présentation de l&apos;entreprise</span>
                 </div>
               </div>
 
@@ -101,8 +100,8 @@ const AchievementsVideoSection = () => {
               <div className="bg-gray-800 px-6 py-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#f16d7a'}}></div>
-                    <span className="text-white text-sm font-medium">Enseignes MEDIAPRINT - 30 ans d'excellence</span>
+                    <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#32B8F1'}}></div>
+                    <span className="text-white text-sm font-medium">Enseignes MEDIAPRINT - 30 ans d&apos;excellence</span>
                   </div>
                   <div className="text-gray-400 text-sm">Vidéo de présentation</div>
                 </div>
@@ -118,11 +117,11 @@ const AchievementsVideoSection = () => {
                 return (
                   <div 
                     key={index}
-                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 group"
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 group"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300 group-hover:bg-red-200" style={{backgroundColor: '#fde2e4'}}>
-                        <IconComponent className="w-6 h-6" style={{color: '#d91e3a'}} />
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300 group-hover:bg-blue-200" style={{backgroundColor: '#dff2fd'}}>
+                        <IconComponent className="w-6 h-6" style={{color: '#1578a9'}} />
                       </div>
                       <div className="flex-1">
                         <div className="text-3xl font-bold text-gray-900 mb-1">
@@ -150,7 +149,7 @@ const AchievementsVideoSection = () => {
               Ce que disent nos clients
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Avis réels d'entreprises montréalaises qui nous confient leurs besoins en enseignes
+              Avis réels d&apos;entreprises montréalaises qui nous confient leurs besoins en enseignes
             </p>
           </div>
 
@@ -161,7 +160,7 @@ const AchievementsVideoSection = () => {
                 className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-300"
               >
                 <div className="mb-4">
-                  <div className="flex mb-3" style={{color: '#f16d7a'}}>
+                  <div className="flex mb-3" style={{color: '#32B8F1'}}>
                     {[...Array(5)].map((_, i) => (
                       <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
                         <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
@@ -169,7 +168,7 @@ const AchievementsVideoSection = () => {
                     ))}
                   </div>
                   <blockquote className="text-gray-700 italic mb-4">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>
                 </div>
                 <div className="border-t border-gray-200 pt-4">
@@ -187,10 +186,10 @@ const AchievementsVideoSection = () => {
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 text-white">
             <h3 className="text-3xl font-bold mb-4">Prêt à rejoindre nos histoires de succès ?</h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Créons quelque chose d'exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd'hui.
+              Créons quelque chose d&apos;exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd&apos;hui.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#EB2F46'}} onMouseEnter={(e) => e.target.style.backgroundColor = '#f16d7a'} onMouseLeave={(e) => e.target.style.backgroundColor = '#EB2F46'}>
+              <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#FC32A2'}} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e91e63')} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FC32A2')}>
                 Obtenir un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </button>

@@ -21,7 +21,7 @@ const InstallationSection = () => {
             {/* Header Section */}
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full">
-                <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#f16d7a'}}></div>
+                <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
                 Installation professionnelle
               </div>
               
@@ -31,14 +31,14 @@ const InstallationSection = () => {
                   <br />
                   <span className="font-semibold">& Réparation</span>
                   <br />
-                  <span className="font-semibold" style={{color: '#EB2F46'}}></span>
+                  <span className="font-semibold" style={{color: '#32B8F1'}}></span>
                 </h2>
                 
-                <div className="w-16 h-1" style={{backgroundColor: '#f16d7a'}}></div>
+                <div className="w-16 h-1" style={{backgroundColor: '#32B8F1'}}></div>
               </div>
               
               <p className="text-lg text-gray-600 leading-relaxed max-w-md">
-                Services d'installation et de maintenance d'enseignes professionnels à Montréal. Précision, fiabilité et excellence dans chaque projet.
+                Services d&apos;installation et de maintenance d&apos;enseignes professionnels à Montréal. Précision, fiabilité et excellence dans chaque projet.
               </p>
             </div>
 
@@ -49,12 +49,12 @@ const InstallationSection = () => {
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Installations</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-gray-900">24/7</div>
+                <div className="text-3xl font-bold text-gray-900">7/7</div>
                 <div className="text-sm text-gray-500 uppercase tracking-wide">Support</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">30+</div>
-                <div className="text-sm text-gray-500 uppercase tracking-wide">Années d'expérience</div>
+                <div className="text-sm text-gray-500 uppercase tracking-wide">Années d&apos;expérience</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-gray-900">100%</div>
@@ -69,16 +69,16 @@ const InstallationSection = () => {
               <div className="space-y-4">
                 {[
                   { title: "Installation professionnelle", desc: "Montage et positionnement expert" },
-                  { title: "Réparations d'urgence", desc: "Service d'intervention rapide 24/7" },
+                  { title: "Réparations d'urgence", desc: "Services d'urgence disponible 7/7" },
                   { title: "Entretien préventif", desc: "Inspections régulières et entretien" },
                   { title: "Gestion des permis", desc: "Conformité réglementaire complète" }
                 ].map((service, index) => (
                   <div key={index} className="flex items-start space-x-4 group">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style={{backgroundColor: '#f16d7a'}}>
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style={{backgroundColor: '#32B8F1'}}>
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
                     <div className="space-y-1">
-                      <div className="font-medium text-gray-900 transition-colors group-hover:text-red-600">
+                      <div className="font-medium text-gray-900 transition-colors group-hover:text-blue-600">
                         {service.title}
                       </div>
                       <div className="text-sm text-gray-500">{service.desc}</div>
@@ -138,7 +138,7 @@ const InstallationSection = () => {
                     <div className="text-sm text-gray-500">et assuré</div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">Certification professionnelle et couverture d'assurance complète pour toutes les installations</div>
+                <div className="text-xs text-gray-400">Certification professionnelle et couverture d&apos;assurance complète pour toutes les installations</div>
               </div>
 
               <div className="absolute -right-8 bottom-1/4 bg-white rounded-xl shadow-lg border border-gray-100 p-6 max-w-xs hidden lg:block">
@@ -153,11 +153,11 @@ const InstallationSection = () => {
                     <div className="text-sm text-gray-500">Service disponible</div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-400">Réparations d'urgence et installations urgentes réalisées en quelques heures</div>
+                <div className="text-xs text-gray-400">Réparations d&apos;urgence et installations urgentes réalisées en quelques heures</div>
               </div>
 
               {/* Subtle accent elements */}
-                              <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl" style={{backgroundColor: 'rgba(241, 109, 122, 0.05)'}}></div>
+                              <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl" style={{backgroundColor: 'rgba(50, 184, 241, 0.05)'}}></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gray-900/5 rounded-full blur-xl"></div>
             </div>
           </div>
@@ -189,7 +189,7 @@ const InstallationSection = () => {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>Service d'urgence 24/7</span>
+                              <span>Services d&apos;urgence disponible 7/7</span>
             </div>
           </div>
         </div>

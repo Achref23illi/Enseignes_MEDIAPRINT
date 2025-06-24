@@ -35,9 +35,9 @@ const AchievementsPage = () => {
   // Company milestones
   const milestones = [
     {
-      year: "1993",
-      title: "Fondation de l'entreprise",
-      description: "Débuts avec la volonté de transformer le paysage de l'enseigne à Montréal",
+      year: "2013",
+      title: "Fondation de l&apos;entreprise",
+      description: "Débuts avec la volonté de transformer le paysage de l&apos;enseigne à Montréal",
       icon: Building,
       color: "bg-blue-500"
     },
@@ -46,28 +46,28 @@ const AchievementsPage = () => {
       title: "Révolution numérique", 
       description: "Investissement dans la technologie d'impression numérique de pointe",
       icon: TrendingUp,
-      color: "bg-green-500"
+      color: "bg-blue-500"
     },
     {
       year: "2010",
       title: "1000+ Projets",
-      description: "Cap franchi de plus de 1000 projets d'enseignes réalisés",
+      description: "Cap franchi de plus de 1000 projets d&apos;enseignes réalisés",
       icon: Target,
-      color: "bg-orange-500"
+      color: "bg-blue-500"
     },
     {
       year: "2018",
-      title: "Reconnaissance de l'industrie",
-      description: "Lauréat du prix d'excellence en enseignes du Québec",
+      title: "Reconnaissance de l&apos;industrie",
+      description: "Lauréat du prix d&apos;excellence en enseignes du Québec",
       icon: Award,
-      color: "bg-purple-500"
+      color: "bg-blue-500"
     },
     {
       year: "2023",
-      title: "30 ans d'excellence",
-      description: "Trois décennies d'innovation et de satisfaction client",
+      title: "30 ans d&apos;excellence",
+      description: "Trois décennies d&apos;innovation et de satisfaction client",
       icon: Crown,
-      color: "bg-red-500"
+      color: "bg-blue-500"
     }
   ];
 
@@ -300,7 +300,7 @@ const AchievementsPage = () => {
   }, [selectedCategory, searchTerm]);
 
   const stats = [
-    { number: "30+", label: "Années d'expérience", icon: Calendar },
+    { number: "30+", label: "Années d&apos;expérience", icon: Calendar },
     { number: `${portfolioProjects.length}+`, label: "Projets réalisés", icon: CheckCircle },
     { number: "500+", label: "Clients satisfaits", icon: Users },
     { number: "98%", label: "Taux de satisfaction", icon: Star }
@@ -319,18 +319,18 @@ const AchievementsPage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full mb-8 border border-white/20">
-              <Crown className="w-5 h-5 mr-2" style={{color: '#f16d7a'}} />
-              <span className="text-white font-medium">30 ans d'excellence</span>
+              <Crown className="w-5 h-5 mr-2" style={{color: '#32B8F1'}} />
+              <span className="text-white font-medium">30 ans d&apos;excellence</span>
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Notre héritage de
               <br />
-              <span style={{color: '#f16d7a'}}>réalisations</span>
+              <span style={{color: '#32B8F1'}}>réalisations</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Trois décennies d'innovation, de savoir-faire et de satisfaction client. Découvrez notre portfolio complet de {portfolioProjects.length}+ projets à travers Montréal.
+              Trois décennies d&apos;innovation, de savoir-faire et de satisfaction client. Découvrez notre portfolio complet de {portfolioProjects.length}+ projets à travers Montréal.
             </p>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -356,7 +356,7 @@ const AchievementsPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Notre parcours</h2>
-            <p className="text-lg text-gray-600">Les étapes clés de nos 30 ans d'histoire</p>
+            <p className="text-lg text-gray-600">Les étapes clés de nos 30 ans d&apos;histoire</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
@@ -399,7 +399,16 @@ const AchievementsPage = () => {
                 placeholder="Rechercher un projet..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent"
+                style={{'--tw-ring-color': '#32B8F1'} as React.CSSProperties}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = 'transparent';
+                  e.currentTarget.style.boxShadow = '0 0 0 2px #32B8F1';
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = '#d1d5db';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               />
               {searchTerm && (
                 <button
@@ -420,9 +429,10 @@ const AchievementsPage = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     selectedCategory === category.id
-                      ? 'bg-gray-900 text-white shadow-lg'
+                      ? 'text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
+                  style={selectedCategory === category.id ? {backgroundColor: '#32B8F1'} : {}}
                 >
                   <span>{category.name}</span>
                   <span className="bg-white/20 text-xs px-2 py-1 rounded-full">{category.count}</span>
@@ -513,7 +523,11 @@ const AchievementsPage = () => {
                     <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded capitalize">
                       {project.category.replace('_', ' ')}
                     </span>
-                    <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-red-600 transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-gray-400 transition-colors" 
+                      style={{'--hover-color': '#32B8F1'} as React.CSSProperties}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#32B8F1'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#9ca3af'}
+                    />
                   </div>
                 </div>
               </div>
@@ -542,9 +556,10 @@ const AchievementsPage = () => {
                       onClick={() => setCurrentPage(page)}
                       className={`px-3 py-2 rounded-lg ${
                         currentPage === page
-                          ? 'bg-gray-900 text-white'
+                          ? 'text-white'
                           : 'border border-gray-300 hover:bg-gray-50'
                       }`}
+                      style={currentPage === page ? {backgroundColor: '#32B8F1'} : {}}
                     >
                       {page}
                     </button>
@@ -615,7 +630,7 @@ const AchievementsPage = () => {
               <Link
                 href="/contact"
                 className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-                style={{backgroundColor: '#EB2F46'}}
+                style={{backgroundColor: '#FC32A2'}}
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />

@@ -32,7 +32,7 @@ export const heroCarouselImages = [
 
 // Company Assets
 export const logos = {
-  main: '/logo.svg',
+  main: '/enseigneLogo.svg',
   alt: 'Enseignes MEDIAPRINT - Professional Sign Manufacturing and Installation'
 };
 
@@ -41,4 +41,11 @@ export const icons = {
   globe: '/globe.svg',
   file: '/file.svg',
   // Add other icons as needed
+};
+
+// Service Images
+export const serviceImages = {
+  permitManagement: '/permit_management.png',
+  truck: '/truck.png',
+  // Add other service images as needed
 }; 

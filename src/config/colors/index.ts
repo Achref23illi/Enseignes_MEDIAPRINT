@@ -1,17 +1,17 @@
 // Brand colors for Signs and Graphics Company
 export const colors = {
-  // Primary brand colors - Professional red scheme
+  // Primary brand colors - Modern blue scheme
   primary: {
-    50: '#fef2f3',
-    100: '#fde2e4',
-    200: '#fbc9cd',
-    300: '#f7a2a9',
-    400: '#f16d7a',
-    500: '#EB2F46',
-    600: '#d91e3a',
-    700: '#b91831',
-    800: '#9a1530',
-    900: '#82152e',
+    50: '#eff9fe',
+    100: '#dff2fd',
+    200: '#b7e7fb',
+    300: '#7fd7f8',
+    400: '#40c4f2',
+    500: '#32B8F1',
+    600: '#1595d1',
+    700: '#1578a9',
+    800: '#18658b',
+    900: '#1a5474',
   },
   
   // Secondary colors - Modern grays
@@ -28,18 +28,32 @@ export const colors = {
     900: '#0f172a',
   },
   
-  // Accent colors - Warm orange for CTAs and highlights
+  // Accent colors - Vibrant pink for CTAs and highlights
   accent: {
-    50: '#fef7ee',
-    100: '#fdedd3',
-    200: '#fbd8a5',
-    300: '#f9bc6d',
-    400: '#f59e0b',
-    500: '#d97706',
-    600: '#b45309',
-    700: '#92400e',
-    800: '#78350f',
-    900: '#451a03',
+    50: '#fef7f5',
+    100: '#feebe8',
+    200: '#fdd4d1',
+    300: '#fbb5b3',
+    400: '#f7878a',
+    500: '#FC32A2',
+    600: '#e91e63',
+    700: '#c2185b',
+    800: '#ad1457',
+    900: '#880e4f',
+  },
+  
+  // Secondary accent - Bright yellow
+  yellow: {
+    50: '#fffef0',
+    100: '#fffacd',
+    200: '#fff59d',
+    300: '#ffed6b',
+    400: '#ffe042',
+    500: '#FDE127',
+    600: '#eab308',
+    700: '#ca8a04',
+    800: '#a16207',
+    900: '#854d0e',
   },
   
   // Status colors

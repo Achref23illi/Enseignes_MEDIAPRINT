@@ -122,8 +122,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
                 <div>
                   <h3 className="font-semibold text-secondary-900 mb-2">Call Us Today</h3>
                   <p className="text-secondary-600">
-                    <a href="tel:+15550123456" className="hover:text-primary-600 transition-colors">
-                      (555) 012-3456
+                            <a href="tel:+15146912512" className="hover:text-primary-600 transition-colors">
+          +1 (514) 691-2512
                     </a><br />
                     <span className="text-sm">Mon-Fri: 8AM-6PM, Sat: 9AM-4PM</span>
                   </p>
@@ -137,8 +137,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
                 <div>
                   <h3 className="font-semibold text-secondary-900 mb-2">Email Us</h3>
                   <p className="text-secondary-600">
-                    <a href="mailto:info@signsandgraphics.com" className="hover:text-primary-600 transition-colors">
-                      info@signsandgraphics.com
+                    <a href="mailto:enseignesmediaprint@gmail.com" className="hover:text-primary-600 transition-colors">
+                      enseignesmediaprint@gmail.com
                     </a><br />
                     <span className="text-sm">We respond within 24 hours</span>
                   </p>
@@ -164,7 +164,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <span className="text-primary-500">✓</span>
-                  <span className="text-sm text-secondary-700">24/7 Emergency</span>
+                  <span className="text-sm text-secondary-700">Urgence 7/7</span>
                 </div>
               </div>
             </div>
@@ -218,7 +218,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                    placeholder="(555) 123-4567"
+                                          placeholder="+1 (514) 691-2512"
                   />
                 </div>
                 <div>

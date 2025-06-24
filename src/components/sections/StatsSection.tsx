@@ -50,7 +50,7 @@ const StatsSection = () => {
       )
     },
     {
-      number: 24,
+      number: 7,
       suffix: '/7',
       label: 'Support disponible',
       description: 'Service de réparation d’urgence et support client quand vous en avez besoin',
@@ -128,7 +128,7 @@ const StatsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full mb-8">
-            <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#f16d7a'}}></div>
+            <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
             Notre parcours
           </div>
           
@@ -138,7 +138,7 @@ const StatsSection = () => {
             <span className="font-semibold">prouvée</span>
           </h2>
           
-          <div className="w-16 h-1 mx-auto mb-8" style={{backgroundColor: '#f16d7a'}}></div>
+          <div className="w-16 h-1 mx-auto mb-8" style={{backgroundColor: '#32B8F1'}}></div>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Trois décennies à fournir des solutions d’enseignes exceptionnelles à Montréal. Nos chiffres témoignent de notre engagement envers la qualité et la satisfaction client.
@@ -158,7 +158,7 @@ const StatsSection = () => {
               }}
             >
               {/* Icon */}
-                              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-600 rounded-xl mb-6 transition-all duration-300 group-hover:bg-red-100 group-hover:text-red-600">
+                              <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 text-gray-600 rounded-xl mb-6 transition-all duration-300 group-hover:bg-blue-100 group-hover:text-blue-600">
                 {stat.icon}
               </div>
               
@@ -167,7 +167,7 @@ const StatsSection = () => {
                 <span className="text-5xl lg:text-6xl font-bold text-gray-900 tabular-nums">
                   {counters[index]}
                 </span>
-                <span className="text-5xl lg:text-6xl font-bold" style={{color: '#EB2F46'}}>
+                <span className="text-5xl lg:text-6xl font-bold" style={{color: '#32B8F1'}}>
                   {stat.suffix}
                 </span>
               </div>
@@ -183,7 +183,7 @@ const StatsSection = () => {
               </p>
               
               {/* Subtle accent line */}
-                              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: 'linear-gradient(to right, transparent, #f16d7a, transparent)'}}></div>
+                              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: 'linear-gradient(to right, transparent, #32B8F1, transparent)'}}></div>
             </div>
           ))}
         </div>
@@ -199,7 +199,7 @@ const StatsSection = () => {
                   Votre partenaire d’enseignes à Montréal
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Depuis 1993, nous avons été le choix fiable pour les entreprises à Montréal, 
+                  Depuis 2013, nous avons été le choix fiable pour les entreprises à Montréal, 
                   fournissant des solutions d’enseignes innovantes qui conduisent à des résultats et renforcent la visibilité de la marque.
                 </p>
               </div>
@@ -209,11 +209,11 @@ const StatsSection = () => {
                 {[
                   { metric: "Leader de l'industrie", detail: "30+ années d'innovation continue" },
                   { metric: "Assurance qualité", detail: "Taux de satisfaction client de 98%" },
-                  { metric: "Réponse rapide", detail: "Disponibilité du service d'urgence 24/7" },
+                  { metric: "Réponse rapide", detail: "Services d'urgence disponible 7/7" },
                   { metric: "Résultats prouvés", detail: "1500+ projets réussis terminés" }
                 ].map((achievement, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#f16d7a'}}></div>
+                    <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#32B8F1'}}></div>
                     <div>
                       <div className="font-semibold text-gray-900">{achievement.metric}</div>
                       <div className="text-gray-600 text-sm">{achievement.detail}</div>
@@ -226,9 +226,9 @@ const StatsSection = () => {
             {/* Right side - Quote */}
             <div className="relative">
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <div className="text-6xl mb-4 leading-none" style={{color: '#f16d7a'}}>"</div>
+                <div className="text-6xl mb-4 leading-none" style={{color: '#32B8F1'}}>&ldquo;</div>
                 <blockquote className="text-xl text-gray-700 font-medium leading-relaxed mb-6">
-                  Excellence en signage n'est pas seulement à propos de ce que nous créons—c'est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser.
+                  Excellence en signage n&apos;est pas seulement à propos de ce que nous créons—c&apos;est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser.
                 </blockquote>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
@@ -238,13 +238,13 @@ const StatsSection = () => {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Enseignes MEDIAPRINT</div>
-                    <div className="text-gray-600 text-sm">Établi en 1993</div>
+                    <div className="text-gray-600 text-sm">Depuis 2013</div>
                   </div>
                 </div>
               </div>
               
               {/* Decorative elements */}
-                              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-xl" style={{backgroundColor: 'rgba(241, 109, 122, 0.1)'}}></div>
+                              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-xl" style={{backgroundColor: 'rgba(50, 184, 241, 0.1)'}}></div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gray-900/5 rounded-full blur-2xl"></div>
             </div>
           </div>

@@ -83,7 +83,7 @@ const AchievementsVideoSection = () => {
                   preload="metadata"
                   poster="/carousel1.jpg"
                 >
-                  <source src="/video.mp4" type="video/mp4" />
+                  <source src="https://storage.googleapis.com/work_images/video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 

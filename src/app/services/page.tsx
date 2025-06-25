@@ -42,7 +42,7 @@ const ServicesPage = () => {
         "Plans techniques et spécifications",
         "Sélection des couleurs et matériaux"
       ],
-      image: "/carousel1.jpg",
+      image: "/CONCEPTION.png",
       category: "Solutions créatives",
       color: "bg-blue-500",
       lightColor: "bg-blue-50",
@@ -60,7 +60,7 @@ const ServicesPage = () => {
         "Intégration et câblage DEL",
         "Contrôle qualité rigoureux"
       ],
-      image: "/carousel2.jpg",
+      image: "/fabrication.png",
       category: "Excellence de production",
       color: "bg-green-500",
       lightColor: "bg-green-50",
@@ -96,7 +96,7 @@ const ServicesPage = () => {
         "Respect du code du bâtiment",
         "Présentation professionnelle"
       ],
-      image: "/carousel4.jpg",
+      image: "/gestion.png",
       category: "Conformité légale",
       color: "bg-purple-500",
       lightColor: "bg-purple-50",

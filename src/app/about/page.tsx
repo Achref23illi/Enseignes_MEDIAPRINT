@@ -130,7 +130,7 @@ const AboutPage = () => {
             <div className="lg:col-span-5">
               <div className="relative">
                 <Image
-                  src="/carousel1.jpg"
+                  src="/thumbnail_20250131_125932.jpg"
                   alt="Enseignes MEDIAPRINT Workshop"
                   width={600}
                   height={400}

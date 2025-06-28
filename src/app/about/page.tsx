@@ -93,34 +93,34 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient -to-br from-gray-50 to-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{backgroundColor: '#dff2fd', color: '#1578a9'}}>
-                  <Building className="w-4 h-4 mr-2" />
+      <section className="relative py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-medium" style={{backgroundColor: '#dff2fd', color: '#1578a9'}}>
+                  <Building className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-2" />
                   À propos de notre entreprise
                 </div>
-                <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
                   3 décennies d&apos;expérience
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
                   Enseignes MEDIAPRINT possède 30 ans d&apos;expertise dans la conception, la fabrication, l&apos;installation et la réparation d&apos;enseignes et de supports graphiques. Cette expertise, alliée à la créativité et à la volonté d&apos;être à la pointe de la technologie, fait de MEDIAPRINT une référence dans le domaine.
                 </p>
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 {stats.map((stat, index) => {
                   const IconComponent = stat.icon;
                   return (
                     <div key={index} className="text-center">
-                                          <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{backgroundColor: '#dff2fd'}}>
-                      <IconComponent className="w-6 h-6" style={{color: '#1578a9'}} />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3" style={{backgroundColor: '#dff2fd'}}>
+                        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" style={{color: '#1578a9'}} />
                       </div>
-                      <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.number}</div>
+                      <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                     </div>
                   );
                 })}
@@ -134,16 +134,16 @@ const AboutPage = () => {
                   alt="Enseignes MEDIAPRINT Workshop"
                   width={600}
                   height={400}
-                  className="rounded-2xl shadow-2xl"
+                  className="rounded-2xl shadow-2xl w-full"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-xl border border-gray-100">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#32B8F1'}}>
-                      <Award className="w-6 h-6 text-white" />
+                <div className="absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white rounded-xl p-4 sm:p-6 shadow-xl border border-gray-100">
+                  <div className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#32B8F1'}}>
+                      <Award className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900">Chef de file de l&apos;industrie</div>
-                      <div className="text-sm text-gray-600">Depuis 2013</div>
+                      <div className="text-sm sm:text-base font-bold text-gray-900">Chef de file de l&apos;industrie</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Depuis 2013</div>
                     </div>
                   </div>
                 </div>
@@ -154,30 +154,30 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mission */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Notre mission</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">Notre mission</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Notre mission est très claire : fournir des produits et solutions optimisés et entièrement testés à nos clients. Chez Enseignes MEDIAPRINT, nous visons rien de moins que l&apos;excellence, tant dans nos relations clients que dans nos produits et services.
             </p>
           </div>
 
           {/* Values Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {values.map((value, index) => {
               const IconComponent = value.icon;
               return (
                 <div 
                   key={index}
-                  className="bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-colors duration-300 group"
+                  className="bg-gray-50 rounded-2xl p-6 sm:p-8 hover:bg-gray-100 transition-colors duration-300 group"
                 >
-                  <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-blue-200" style={{backgroundColor: '#dff2fd'}}>
-                    <IconComponent className="w-8 h-8" style={{color: '#1578a9'}} />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 transition-colors duration-300 group-hover:bg-blue-200" style={{backgroundColor: '#dff2fd'}}>
+                    <IconComponent className="w-6 h-6 sm:w-8 sm:h-8" style={{color: '#1578a9'}} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{value.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
@@ -186,144 +186,92 @@ const AboutPage = () => {
       </section>
 
       {/* Passion Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-8 space-y-6">
-                                <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium" style={{backgroundColor: 'rgba(50, 184, 241, 0.2)', color: '#32B8F1'}}>
-                <Heart className="w-4 h-4 mr-2" />
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+            <div className="lg:col-span-8 space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm font-medium" style={{backgroundColor: 'rgba(50, 184, 241, 0.2)', color: '#32B8F1'}}>
+                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-2" />
                 Notre passion
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 Portés par l&apos;innovation & l&apos;excellence
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Nous sommes passionnés par notre
-                Cette passion nous pousse à continuer d&apos;innover et à dépasser les attentes.
+              <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
+                Notre passion pour l&apos;innovation et l&apos;excellence nous pousse à repousser constamment les limites de ce qui est possible dans l&apos;industrie des enseignes. Nous sommes fiers de notre capacité à transformer les visions de nos clients en réalités tangibles qui captivent et inspirent.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="inline-flex items-center px-6 py-3 text-white font-semibold rounded-lg transition-colors duration-300" style={{backgroundColor: '#FC32A2'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}>
-                  En savoir plus sur nous
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </button>
-                <button className="inline-flex items-center px-6 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors duration-300">
-                  Voir notre travail
-                </button>
-              </div>
             </div>
+
             <div className="lg:col-span-4">
-              <div className="relative">
-                <Image
-                  src="/truck.png"
-                  alt="MEDIAPRINT Service Vehicle"
-                  width={400}
-                  height={300}
-                  className="rounded-xl"
-                />
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                {[
+                  { label: 'Projets innovants', value: '500+' },
+                  { label: 'Technologies maîtrisées', value: '20+' },
+                  { label: 'Brevets déposés', value: '15+' },
+                  { label: 'Prix d&apos;innovation', value: '10+' }
+                ].map((item, index) => (
+                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6">
+                    <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{item.value}</div>
+                    <div className="text-sm sm:text-base text-gray-300">{item.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Achievements Timeline */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Notre parcours d&apos;excellence</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Découvrez les étapes clés qui ont fait d&apos;Enseignes MEDIAPRINT le leader de l&apos;enseigne à Montréal.
+      {/* Timeline Section */}
+      <section className="py-12 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">Notre parcours</h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+              Découvrez les moments clés qui ont façonné notre entreprise et nous ont permis de devenir un leader dans l&apos;industrie des enseignes.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12">
-            {/* Timeline Navigation */}
-            <div className="lg:col-span-4 space-y-4">
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-12">
               {achievements.map((achievement, index) => {
                 const IconComponent = achievement.icon;
                 return (
-                  <button
-                    key={achievement.id}
-                    onClick={() => setActiveAchievement(index)}
-                    className={`w-full text-left p-6 rounded-xl transition-all duration-300 ${
-                      activeAchievement === index
-                        ? 'text-white shadow-lg scale-105'
-                        : 'bg-white text-gray-900 hover:bg-gray-100 shadow-md'
-                    }`}
-                    style={activeAchievement === index ? {backgroundColor: '#32B8F1'} : {}}
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        activeAchievement === index ? 'bg-black/20' : ''
-                      }`}
-                      style={activeAchievement === index ? {} : {backgroundColor: '#dff2fd'}}>
-                        <IconComponent className={`w-6 h-6 ${
-                          activeAchievement === index ? 'text-white' : ''
-                        }`} 
-                        style={activeAchievement === index ? {} : {color: '#1578a9'}} />
-                      </div>
-                      <div className="flex-1">
-                        <div className={`text-2xl font-bold mb-1 ${
-                          activeAchievement === index ? 'text-white' : ''
-                        }`}
-                        style={activeAchievement === index ? {} : {color: '#1578a9'}}>
-                          {achievement.year}
+                  <div key={achievement.id} className={`relative flex flex-col sm:flex-row ${index % 2 === 0 ? 'sm:flex-row-reverse' : ''} items-start sm:items-center gap-8`}>
+                    {/* Timeline Point */}
+                    <div className="absolute left-4 sm:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full border-4 border-white shadow-lg" style={{backgroundColor: '#32B8F1'}}></div>
+
+                    {/* Content */}
+                    <div className={`w-full sm:w-1/2 ${index % 2 === 0 ? 'sm:pl-12' : 'sm:pr-12'} pl-12 sm:pl-0`}>
+                      <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
+                        <div className="flex items-center space-x-4 mb-4">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center" style={{backgroundColor: '#dff2fd'}}>
+                            <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" style={{color: '#1578a9'}} />
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-gray-500">{achievement.year}</div>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900">{achievement.title}</h3>
+                          </div>
                         </div>
-                        <div className="font-semibold mb-2">{achievement.title}</div>
-                        <div className={`text-sm ${
-                          activeAchievement === index ? 'text-white/90' : 'text-gray-600'
-                        }`}>
-                          {achievement.description.substring(0, 80)}...
+                        <p className="text-sm sm:text-base text-gray-600 mb-4">{achievement.description}</p>
+                        <div className="flex items-center space-x-6">
+                          <div>
+                            <div className="text-lg sm:text-xl font-bold text-gray-900">{achievement.stats.projects}</div>
+                            <div className="text-sm text-gray-500">Projets</div>
+                          </div>
+                          <div>
+                            <div className="text-lg sm:text-xl font-bold text-gray-900">{achievement.stats.clients}</div>
+                            <div className="text-sm text-gray-500">Clients</div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </button>
+                  </div>
                 );
               })}
-            </div>
-
-            {/* Achievement Details */}
-            <div className="lg:col-span-8">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="relative h-64 lg:h-80">
-                  <Image
-                    src={achievements[activeAchievement].image}
-                    alt={achievements[activeAchievement].title}
-                    fill
-                    className="object-cover transition-opacity duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <div className="text-3xl font-bold mb-2">
-                      {achievements[activeAchievement].year}
-                    </div>
-                    <div className="text-xl font-semibold">
-                      {achievements[activeAchievement].title}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-8">
-                  <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                    {achievements[activeAchievement].description}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <div className="text-2xl font-bold text-gray-900 mb-1">
-                        {achievements[activeAchievement].stats.projects}
-                      </div>
-                      <div className="text-sm text-gray-600">Projets réalisés</div>
-                    </div>
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <div className="text-2xl font-bold text-gray-900 mb-1">
-                        {achievements[activeAchievement].stats.clients}
-                      </div>
-                      <div className="text-sm text-gray-600">Clients satisfaits</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

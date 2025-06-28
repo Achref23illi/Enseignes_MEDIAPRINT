@@ -92,13 +92,13 @@ const ServicesOverview = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full mb-8">
+        <div className="text-center mb-12 sm:mb-20">
+          <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-full mb-6 sm:mb-8">
             <div className="w-2 h-2 rounded-full mr-3" style={{backgroundColor: '#32B8F1'}}></div>
             Notre expertise
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1] mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1] mb-6">
             Solutions
             <br />
             <span className="font-semibold">d&apos;enseignes</span>
@@ -106,31 +106,31 @@ const ServicesOverview = () => {
             <span className="font-semibold" style={{color: '#32B8F1'}}>complètes</span>
           </h2>
           
-          <div className="w-16 h-1 mx-auto mb-8" style={{backgroundColor: '#32B8F1'}}></div>
+          <div className="w-16 h-1 mx-auto mb-6 sm:mb-8" style={{backgroundColor: '#32B8F1'}}></div>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             De la conception à la réalisation, nous offrons des solutions d&apos;enseignes complètes qui renforcent votre image de marque et stimulent le succès de votre entreprise à Montréal.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="space-y-24">
+        <div className="space-y-16 sm:space-y-24">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               } transition-all duration-700`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               
               {/* Content Side */}
-              <div className={`lg:col-span-6 space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <div className={`lg:col-span-6 space-y-6 sm:space-y-8 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 
                 {/* Service Header */}
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 transition-all duration-300 group-hover:bg-red-100 group-hover:text-red-600">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-xl flex items-center justify-center text-gray-600 transition-all duration-300 group-hover:bg-red-100 group-hover:text-red-600">
                       {service.icon}
                     </div>
                     <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">
@@ -139,30 +139,30 @@ const ServicesOverview = () => {
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="text-4xl font-semibold text-gray-900 leading-tight">
+                    <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 leading-tight">
                       {service.title}
                     </h3>
-                    <div className="text-lg font-medium" style={{color: '#32B8F1'}}>
+                    <div className="text-base sm:text-lg font-medium" style={{color: '#32B8F1'}}>
                       {service.subtitle}
                     </div>
                     <div className="w-12 h-1" style={{backgroundColor: '#32B8F1'}}></div>
                   </div>
                   
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Service Details */}
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-gray-900">Caractéristiques clés</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-900">Caractéristiques clés</h4>
                   <div className="space-y-3">
                     {service.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start space-x-4 group">
-                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{backgroundColor: '#32B8F1'}}>
-                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{backgroundColor: '#32B8F1'}}>
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full"></div>
                         </div>
-                        <span className="text-gray-700 group-hover:text-gray-900 transition-colors">
+                        <span className="text-sm sm:text-base text-gray-700 group-hover:text-gray-900 transition-colors">
                           {detail}
                         </span>
                       </div>
@@ -174,12 +174,12 @@ const ServicesOverview = () => {
                 <div className="pt-4">
                   <Link
                     href="/services"
-                    className="inline-flex items-center text-gray-900 font-semibold transition-colors group"
+                    className="inline-flex items-center text-gray-900 font-semibold transition-colors group text-sm sm:text-base"
                     onMouseEnter={(e) => e.currentTarget.style.color = '#32B8F1'}
                     onMouseLeave={(e) => e.currentTarget.style.color = '#1f2937'}
                   >
                     En savoir plus sur ce service
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
@@ -192,44 +192,24 @@ const ServicesOverview = () => {
                   <div className="relative group cursor-pointer">
                     
                     {/* Background Card */}
-                    <div className="absolute inset-4 bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl"></div>
+                    <div className="absolute inset-4 bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
                     
                     {/* Main Image */}
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-gray-200 transform group-hover:scale-[1.02] transition-transform duration-300">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       
                       {/* Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent group-hover:from-gray-900/40 transition-all duration-300"></div>
-                      
-                      {/* Hover Overlay with Text */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center">
-                          <div className="bg-white/95 backdrop-blur-sm rounded-lg px-6 py-3 border border-gray-200">
-                            <div className="text-sm font-semibold text-gray-900 mb-1">Voir nos réalisations</div>
-                            <div className="text-xs text-gray-600">Découvrir notre portfolio</div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Service Badge */}
-                      <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-200">
-                        <div className="text-sm font-semibold text-gray-900">{service.title}</div>
-                        <div className="text-xs text-gray-600">{service.subtitle}</div>
-                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-xl" style={{backgroundColor: 'rgba(50, 184, 241, 0.1)'}}></div>
-                    <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gray-900/5 rounded-full blur-2xl"></div>
                   </div>
                 </Link>
               </div>
-
             </div>
           ))}
         </div>

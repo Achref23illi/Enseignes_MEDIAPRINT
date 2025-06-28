@@ -81,7 +81,7 @@ const AchievementsVideoSection = () => {
                   className="w-full h-full object-cover"
                   controls
                   preload="metadata"
-                  poster="/carousel1.jpg"
+                  poster="/thumbnail_IMG_20250425_104737670_HDR.jpg"
                 >
                   <source src="https://storage.googleapis.com/work_images/video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

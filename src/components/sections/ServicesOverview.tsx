@@ -3,10 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import ContactModal from '@/components/common/ContactModal';
 
 const ServicesOverview = () => {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [showContactModal, setShowContactModal] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -101,7 +103,7 @@ const ServicesOverview = () => {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 leading-[1.1] mb-6">
             Solutions
             <br />
-            <span className="font-semibold">d&apos;enseignes</span>
+            <span className="font-semibold">{"d'enseignes"}</span>
             <br />
             <span className="font-semibold" style={{color: '#32B8F1'}}>complètes</span>
           </h2>
@@ -109,7 +111,7 @@ const ServicesOverview = () => {
           <div className="w-16 h-1 mx-auto mb-6 sm:mb-8" style={{backgroundColor: '#32B8F1'}}></div>
           
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-            De la conception à la réalisation, nous offrons des solutions d&apos;enseignes complètes qui renforcent votre image de marque et stimulent le succès de votre entreprise à Montréal.
+            {"De la conception à la réalisation, nous offrons des solutions d'enseignes complètes qui renforcent votre image de marque et stimulent le succès de votre entreprise à Montréal."}
           </p>
         </div>
 
@@ -219,7 +221,7 @@ const ServicesOverview = () => {
           <div className="bg-gray-900 rounded-3xl p-12 lg:p-16 text-center relative overflow-hidden">
             
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10" style={{
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`
             }}></div>
             
@@ -231,7 +233,7 @@ const ServicesOverview = () => {
                   <span style={{color: '#32B8F1'}}>votre entreprise?</span>
                 </h3>
                 <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                  Partenaire avec les experts en enseignes de Montréal. Obtenez une consultation complète et une proposition de projet détaillée adaptée à vos besoins d&apos;entreprise.
+                  {"Partenaire avec les experts en enseignes de Montréal. Obtenez une consultation complète et une proposition de projet détaillée adaptée à vos besoins d'entreprise."}
                 </p>
               </div>
 
@@ -243,7 +245,7 @@ const ServicesOverview = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2" style={{color: '#32B8F1'}}>30+</div>
-                                      <div className="text-gray-400 text-sm uppercase tracking-wide">Années d&apos;expérience</div>
+                                      <div className="text-gray-400 text-sm uppercase tracking-wide">{"Années d'expérience"}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2" style={{color: '#32B8F1'}}>7/7</div>
@@ -253,17 +255,17 @@ const ServicesOverview = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
+                <button
+                  onClick={() => setShowContactModal(true)}
                   className="text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-                style={{backgroundColor: '#FC32A2'}}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}
+                  style={{backgroundColor: '#FC32A2'}}
+                  onMouseEnter={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#e91e63'}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FC32A2'}
                 >
                   Obtenir une consultation gratuite
-                </Link>
+                </button>
                 <Link
-                  href="/portfolio"
+                  href="/achievements"
                   className="border-2 border-gray-600 hover:border-gray-500 text-white hover:bg-gray-800 px-8 py-4 rounded-lg font-semibold transition-all duration-300"
                 >
                   Voir notre travail
@@ -278,6 +280,12 @@ const ServicesOverview = () => {
         </div>
 
       </div>
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+      />
+
     </section>
   )
 }

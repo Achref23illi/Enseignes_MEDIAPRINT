@@ -193,7 +193,7 @@ const Header = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}
               >
-                <span>Pour plus d&apos;info</span>
+                <span>{"Pour plus d'info"}</span>
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -247,7 +247,7 @@ const Header = () => {
                 className="flex items-center justify-center space-x-2 text-white px-4 py-3 rounded-lg font-semibold w-full"
                 style={{backgroundColor: '#FC32A2'}}
               >
-                <span>Pour plus d&apos;info</span>
+                <span>{"Pour plus d'info"}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

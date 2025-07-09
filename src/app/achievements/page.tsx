@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import ContactForm from '@/components/common/ContactForm';
 import Image from 'next/image';
 import { 
   Calendar,
@@ -25,6 +26,7 @@ import {
 
 const AchievementsPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showContactModal, setShowContactModal] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'masonry'
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
@@ -32,7 +34,7 @@ const AchievementsPage = () => {
   // Company milestones
   const milestones = [
     {
-      year: "2013",
+      year: "1993",
       title: "Fondation de l'entreprise",
       description: "Débuts avec la volonté de transformer le paysage de l'enseigne à Montréal",
       icon: Building,
@@ -40,7 +42,7 @@ const AchievementsPage = () => {
     },
     {
       year: "2000",
-      title: "Révolution numérique", 
+      title: "Révolution numérique",
       description: "Investissement dans la technologie d'impression numérique de pointe",
       icon: TrendingUp,
       color: "bg-blue-500"
@@ -50,13 +52,6 @@ const AchievementsPage = () => {
       title: "1000+ Projets",
       description: "Cap franchi de plus de 1000 projets d'enseignes réalisés",
       icon: Target,
-      color: "bg-blue-500"
-    },
-    {
-      year: "2018",
-      title: "Reconnaissance de l'industrie",
-      description: "Lauréat du prix d'excellence en enseignes du Québec",
-      icon: Award,
       color: "bg-blue-500"
     },
     {
@@ -151,7 +146,7 @@ const AchievementsPage = () => {
 
   const stats = [
     { number: "30+", label: "Années d'expérience", icon: Calendar },
-    { number: `${portfolioProjects.length}+`, label: "Projets réalisés", icon: CheckCircle },
+    { number: '1500+', label: "Projets réalisés", icon: CheckCircle },
     { number: "500+", label: "Clients satisfaits", icon: Users },
     { number: "98%", label: "Taux de satisfaction", icon: Star }
   ];
@@ -415,13 +410,14 @@ const AchievementsPage = () => {
             Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nous pouvons transformer votre visibilité commerciale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => setShowContactModal(true)}
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-300"
             >
               Obtenir un devis gratuit
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
             <Link
               href="/services"
               className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300"
@@ -492,6 +488,146 @@ const AchievementsPage = () => {
                   Demander un devis
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl transform transition-all">
+            {/* Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <h2 className="text-2xl font-bold text-gray-900">Obtenir un devis gratuit</h2>
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                aria-label="Fermer le modal"
+              >
+                <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <p className="text-center text-sm text-gray-600 mt-4">Nous vous répondrons dans les 24&nbsp;heures.</p>
+            
+            {/* Form Content */}
+            <div className="p-6">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Nom complet *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Votre nom"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="votre@email.com"
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="+1 (514) 000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Entreprise
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                      placeholder="Nom de l'entreprise"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Service requis
+                  </label>
+                  <select 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    aria-label="Service requis"
+                  >
+                    <option value="">Sélectionnez un service</option>
+                    <option value="enseignes-led">Enseignes LED</option>
+                    <option value="enseignes-vitrine">Enseignes de vitrine</option>
+                    <option value="pylones">Pylônes</option>
+                    <option value="mural">Habillage  mural</option>
+                    <option value="bannieres">Bannières</option>
+                    <option value="installation">Installation</option>
+                    <option value="maintenance">Maintenance</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Détails du projet *
+                  </label>
+                  <textarea
+                    required
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    placeholder="Décrivez votre projet d'enseigne..."
+                  />
+                </div>
+                
+                <div className="flex gap-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowContactModal(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    Annuler
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Envoyer la demande
+                  </button>
+                </div>
+              </form>
+              
+              {/* Contact Info */}
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <div className="flex items-center justify-center gap-6 text-sm text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>+1 (514) 691-2512</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span>enseignesmediaprint@gmail.com</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

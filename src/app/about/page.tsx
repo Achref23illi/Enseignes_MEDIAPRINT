@@ -1,7 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import ContactModal from '@/components/common/ContactModal';
+import CompaniesCarousel from '@/components/sections/CompaniesCarousel';
 import Image from 'next/image';
+import Link from 'next/link';
 import { 
   Award, 
   Users, 
@@ -20,13 +23,14 @@ import {
 
 const AboutPage = () => {
   const [activeAchievement, setActiveAchievement] = useState(0);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   const achievements = [
     {
       id: 1,
       year: '2013',
-      title: 'Fondation de l&apos;entreprise',
-      description: 'Enseignes MEDIAPRINT a été fondée avec la volonté de révolutionner l&apos;industrie de l&apos;enseigne à Montréal.',
+      title: "Fondation de l'entreprise",
+      description: "Enseignes MEDIAPRINT a été fondée avec la volonté de révolutionner l'industrie de l'enseigne à Montréal.",
       image: '/truck.png',
       stats: { projects: '50+', clients: '25+' },
       icon: Building
@@ -35,25 +39,16 @@ const AboutPage = () => {
       id: 2,
       year: '2015',
       title: 'Expansion des services',
-      description: 'Élargissement de notre gamme de services avec l&apos;ajout de l&apos;impression grand format et des enseignes LED.',
+      description: "Élargissement de notre gamme de services avec l'ajout de l'impression grand format et des enseignes LED.",
       image: '/enseigne_channel/Ags-Papa-john.jpg',
       stats: { projects: '200+', clients: '100+' },
       icon: Zap
     },
     {
-      id: 3,
-      year: '2018',
-      title: 'Reconnaissance de l&apos;industrie',
-      description: 'Lauréat du prix d&apos;excellence en affaires de Montréal pour un service et une innovation remarquables dans l&apos;enseigne.',
-      image: '/pylons_and_steles/Pylone-AGS.jpg',
-      stats: { projects: '800+', clients: '400+' },
-      icon: Trophy
-    },
-    {
       id: 4,
       year: '2023',
       title: 'Leadership établi',
-      description: 'Consolidation de notre position de leader avec plus de 1500 projets réalisés et une équipe d&apos;experts dédiés.',
+      description: "Consolidation de notre position de leader avec plus de 1500 projets réalisés et une équipe d'experts dédiés.",
       image: '/push_through_sign/enseignesAGS-Montreal.jpg',
       stats: { projects: '1500+', clients: '800+' },
       icon: Shield
@@ -103,10 +98,10 @@ const AboutPage = () => {
                   À propos de notre entreprise
                 </div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                  3 décennies d&apos;expérience
+                  {"3 décennies d'expérience"}
                 </h1>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                  Enseignes MEDIAPRINT possède 30 ans d&apos;expertise dans la conception, la fabrication, l&apos;installation et la réparation d&apos;enseignes et de supports graphiques. Cette expertise, alliée à la créativité et à la volonté d&apos;être à la pointe de la technologie, fait de MEDIAPRINT une référence dans le domaine.
+                  {"Enseignes MEDIAPRINT possède 30 ans d'expertise dans la conception, la fabrication, l'installation et la réparation d'enseignes et de supports graphiques. Cette expertise, alliée à la créativité et à la volonté d'être à la pointe de la technologie, fait de MEDIAPRINT une référence dans le domaine."}
                 </p>
               </div>
 
@@ -142,7 +137,7 @@ const AboutPage = () => {
                       <Award className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-sm sm:text-base font-bold text-gray-900">Chef de file de l&apos;industrie</div>
+                      <div className="text-sm sm:text-base font-bold text-gray-900">{"Chef de file de l'industrie"}</div>
                       <div className="text-xs sm:text-sm text-gray-600">Depuis 2013</div>
                     </div>
                   </div>
@@ -160,7 +155,7 @@ const AboutPage = () => {
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">Notre mission</h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Notre mission est très claire : fournir des produits et solutions optimisés et entièrement testés à nos clients. Chez Enseignes MEDIAPRINT, nous visons rien de moins que l&apos;excellence, tant dans nos relations clients que dans nos produits et services.
+              {"Notre mission est très claire : fournir des produits et solutions optimisés et entièrement testés à nos clients. Chez Enseignes MEDIAPRINT, nous visons rien de moins que l'excellence, tant dans nos relations clients que dans nos produits et services."}
             </p>
           </div>
 
@@ -195,10 +190,10 @@ const AboutPage = () => {
                 Notre passion
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                Portés par l&apos;innovation & l&apos;excellence
+                {"Portés par l'innovation & l'excellence"}
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
-                Notre passion pour l&apos;innovation et l&apos;excellence nous pousse à repousser constamment les limites de ce qui est possible dans l&apos;industrie des enseignes. Nous sommes fiers de notre capacité à transformer les visions de nos clients en réalités tangibles qui captivent et inspirent.
+                {"Notre passion pour l'innovation et l'excellence nous pousse à repousser constamment les limites de ce qui est possible dans l'industrie des enseignes. Nous sommes fiers de notre capacité à transformer les visions de nos clients en réalités tangibles qui captivent et inspirent."}
               </p>
             </div>
 
@@ -208,7 +203,7 @@ const AboutPage = () => {
                   { label: 'Projets innovants', value: '500+' },
                   { label: 'Technologies maîtrisées', value: '20+' },
                   { label: 'Brevets déposés', value: '15+' },
-                  { label: 'Prix d&apos;innovation', value: '10+' }
+                  { label: "Prix d'innovation", value: '10+' }
                 ].map((item, index) => (
                   <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6">
                     <div className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">{item.value}</div>
@@ -227,7 +222,7 @@ const AboutPage = () => {
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">Notre parcours</h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-              Découvrez les moments clés qui ont façonné notre entreprise et nous ont permis de devenir un leader dans l&apos;industrie des enseignes.
+              {"Découvrez les moments clés qui ont façonné notre entreprise et nous ont permis de devenir un leader dans l'industrie des enseignes."}
             </p>
           </div>
 
@@ -281,22 +276,42 @@ const AboutPage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Prêt à collaborer avec le leader de l&apos;enseigne à Montréal ?
+            {"Prêt à collaborer avec le leader de l'enseigne à Montréal ?"}
           </h2>
                       <p className="text-xl text-gray-600 mb-8">
-              Discutons ensemble de la façon dont nos 3 décennies d&apos;expérience peuvent valoriser la présence de votre entreprise.
+              {"Discutons ensemble de la façon dont nos 3 décennies d'expérience peuvent valoriser la présence de votre entreprise."}
             </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                          <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#FC32A2'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}>
+            <button 
+              onClick={() => setShowContactModal(true)}
+              className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" 
+              style={{backgroundColor: '#FC32A2'}} 
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'} 
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}
+            >
               Obtenir une consultation gratuite
               <ArrowRight className="ml-2 w-5 h-5" />
             </button>
-            <button className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300">
+            <Link
+              href="/achievements"
+              className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            >
               Voir notre portfolio
-            </button>
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Companies Worked With Carousel */}
+      <section className="bg-gray-50">
+        <CompaniesCarousel />
+      </section>
+      
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+      />
     </div>
   );
 };

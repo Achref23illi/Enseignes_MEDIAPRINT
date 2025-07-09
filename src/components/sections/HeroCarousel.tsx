@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import ContactModal from '@/components/common/ContactModal';
 import { ArrowRight } from 'lucide-react';
 
 const heroContent = {
@@ -12,6 +12,8 @@ const heroContent = {
 };
 
 const HeroCarousel = () => {
+  const [showContactModal, setShowContactModal] = useState(false);
+
   return (
     <section className="relative w-full aspect-[2/1] overflow-hidden bg-gray-900">
       {/* Background Video */}
@@ -40,27 +42,27 @@ const HeroCarousel = () => {
       {/* Mobile Centered CTA & Tagline */}
       <div className="absolute inset-0 flex flex-col items-center justify-center sm:hidden z-20 px-4 text-center space-y-3">
         <p className="text-white text-sm">Enseignes sur mesure depuis 30&nbsp;ans</p>
-        <Link
-          href={heroContent.buttonLink}
+        <button
+          onClick={() => setShowContactModal(true)}
           className="inline-flex items-center px-4 py-2 bg-white/90 hover:bg-white text-gray-900 text-sm font-semibold rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400"
           style={{ boxShadow: '0 2px 12px 0 rgba(0,0,0,0.08)' }}
         >
           {heroContent.buttonText}
           <ArrowRight className="ml-2 w-4 h-4" />
-        </Link>
+        </button>
       </div>
 
       {/* Existing CTA Button Bottom Right for desktop */}
       <div className="absolute bottom-8 right-8 z-20 hidden sm:block">
-        <Link
-          href={heroContent.buttonLink}
+        <button
+          onClick={() => setShowContactModal(true)}
           className="inline-flex items-center bg-white/90 hover:bg-white text-gray-900 font-semibold rounded-full shadow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-400
             px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base"
           style={{ boxShadow: '0 2px 12px 0 rgba(0,0,0,0.08)' }}
         >
           {heroContent.buttonText}
           <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-        </Link>
+        </button>
       </div>
 
       {/* Headline and Subheadline Bottom Left */}
@@ -72,6 +74,12 @@ const HeroCarousel = () => {
           {heroContent.subtitle}
         </p>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+      />
     </section>
   );
 };

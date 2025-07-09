@@ -25,22 +25,20 @@ const Footer = () => {
     'Enseignes et lettrage sur mesure',
     'Impression numérique',
     'Auvents et marquises',
-    'Solutions d\'éclairage DEL',
-    'Habillage de véhicules',
+    'Habillage  mural',
     'Stands d\'exposition'
   ];
 
   const quickLinks = [
     { name: 'À propos', href: '/about' },
     { name: 'Nos services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Portfolio', href: '/achievements' },
     { name: 'Contact', href: '/contact' },
     { name: 'Obtenir un devis', href: '/quote' },
     { name: 'Carrières', href: '/careers' }
   ];
 
   const certifications = [
-    { name: 'ISO 9001', description: 'Gestion de la qualité' },
     { name: 'Certifié CSA', description: 'Normes de sécurité' },
     { name: 'Conforme OSHA', description: 'Sécurité au travail' }
   ];
@@ -61,7 +59,7 @@ const Footer = () => {
                 className="h-10 sm:h-12 w-auto"
               />
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                Entreprise d&apos;enseignes numéro 1 à Montréal avec plus de 3 décennies d&apos;expérience. Nous transformons les entreprises grâce à un design innovant et un savoir-faire de qualité.
+                {"Entreprise d'enseignes numéro 1 à Montréal avec plus de 3 décennies d'expérience. Nous transformons les entreprises grâce à un design innovant et un savoir-faire de qualité."}
               </p>
             </div>
 
@@ -87,10 +85,10 @@ const Footer = () => {
             <div className="bg-gray-800 rounded-lg p-3 sm:p-4">
               <div className="flex items-center space-x-3 mb-2 sm:mb-3">
                 <Award className="w-4 h-4 sm:w-5 sm:h-5" style={{color: '#32B8F1'}} />
-                <span className="text-sm sm:text-base font-semibold">Reconnaissance de l&apos;industrie</span>
+                <span className="text-sm sm:text-base font-semibold">{"Reconnaissance de l'industrie"}</span>
               </div>
               <div className="text-xs sm:text-sm text-gray-300">
-                Lauréat du prix d&apos;excellence en affaires de Montréal 2023
+                {"Lauréat du prix d'excellence en affaires de Montréal 2023"}
               </div>
             </div>
           </div>
@@ -196,7 +194,7 @@ const Footer = () => {
                     1234 Rue Saint-Laurent<br />
                     Montreal, QC H2X 2T3
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-400">Salle d&apos;exposition & Atelier</div>
+                  <div className="text-xs sm:text-sm text-gray-400">{"Salle d'exposition & Atelier"}</div>
                 </div>
               </div>
             </div>
@@ -244,7 +242,7 @@ const Footer = () => {
                 Politique de confidentialité
               </Link>
               <Link href="/terms" className="text-xs sm:text-sm text-gray-400 hover:text-white transition-colors duration-300">
-                Conditions d&apos;utilisation
+                {"Conditions d'utilisation"}
               </Link>
             </div>
           </div>

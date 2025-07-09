@@ -228,7 +228,7 @@ const StatsSection = () => {
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                 <div className="text-6xl mb-4 leading-none" style={{color: '#32B8F1'}}>&ldquo;</div>
                 <blockquote className="text-xl text-gray-700 font-medium leading-relaxed mb-6">
-                  Excellence en signage n&apos;est pas seulement à propos de ce que nous créons—c&apos;est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser.
+                  {"Excellence en signage n'est pas seulement à propos de ce que nous créons—c'est à propos des partenariats durables que nous construisons et de la réussite que nous aidons nos clients à réaliser."}
                 </blockquote>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">

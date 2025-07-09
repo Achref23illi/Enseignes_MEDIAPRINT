@@ -19,10 +19,9 @@ const ContactSection = () => {
     'Enseignes et lettrage sur mesure',
     'Impression numérique',
     'Auvents et marquises',
-    'Solutions d&apos;éclairage DEL',
-    'Habillage de véhicules',
-    'Stands d&apos;exposition',
-    'Services d&apos;installation',
+    'Habillage  mural',
+    "Stands d'exposition",
+    "Services d'installation",
     'Autre'
   ];
 
@@ -50,9 +49,9 @@ const ContactSection = () => {
     },
     {
       icon: Clock,
-      title: 'Heures d&apos;ouverture',
+      title: "Heures d'ouverture",
       primary: 'Lun - Ven : 8h00 - 18h00',
-      secondary: 'Samedi : 9h00 - 16h00',
+      secondary: 'Urgence : +1 (514) 691-2512',
       href: null
     }
   ];
@@ -110,9 +109,10 @@ const ContactSection = () => {
           {/* Contact Form */}
           <div className="lg:col-span-7">
             <div className="bg-gray-50 rounded-2xl p-8 lg:p-10">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Obtenez votre devis gratuit
               </h3>
+              <p className="text-sm text-gray-600 mb-6">Nous vous répondrons dans les 24&nbsp;heures.</p>
               
               {isSubmitted ? (
                 <div className="text-center py-12">
@@ -357,7 +357,7 @@ const ContactSection = () => {
             <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 text-white">
               <h4 className="font-bold text-lg mb-2">Communication rapide</h4>
               <p className="text-gray-300 text-sm mb-6">
-                Besoin d&apos;une réparation urgente ou d&apos;informations ? Contactez-nous directement via WhatsApp ou demandez plus d&apos;informations.
+                Besoin d'une réparation urgente ou d'informations ? Contactez-nous directement via WhatsApp ou demandez plus d'informations.
               </p>
               
               {/* Quick Communication Buttons */}
@@ -384,14 +384,14 @@ const ContactSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e91e63'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FC32A2'}
                 >
-                  Pour plus d&apos;info
+                  Pour plus d'info
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>
               
               {/* Emergency Line */}
               <div className="border-t border-gray-700 pt-4">
-                <p className="text-gray-300 text-sm mb-2">Services d&apos;urgence disponible 7/7</p>
+                <p className="text-gray-300 text-sm mb-2">Services d'urgence disponible 7/7</p>
                 <a 
                   href="tel:+15146912512"
                   className="inline-flex items-center font-semibold transition-colors duration-300"
@@ -399,7 +399,7 @@ const ContactSection = () => {
                   onMouseEnter={(e) => e.currentTarget.style.color = '#1e8bb8'}
                   onMouseLeave={(e) => e.currentTarget.style.color = '#32B8F1'}
                 >
-                  Ligne d&apos;urgence
+                  Ligne d'urgence
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </div>

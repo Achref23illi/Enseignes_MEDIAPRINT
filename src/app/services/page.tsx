@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
+import ContactModal from '@/components/common/ContactModal';
 import Image from 'next/image';
 import { 
   Pen, 
@@ -24,6 +24,7 @@ import {
 const ServicesPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -105,6 +106,7 @@ const ServicesPage = () => {
   ];
 
   return (
+    <>
     <div className="min-h-screen bg-white">
       {/* Hero Section - Unique Layout */}
       <section className="relative bg-gray-900 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
@@ -120,20 +122,20 @@ const ServicesPage = () => {
             {/* Main Title - Hidden on mobile, visible on desktop */}
             <h1 className="hidden sm:block text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6 sm:mb-8">
               Valorisez votre marque avec le<br />
-              <span className="text-[#32B8F1]">leader de l&apos;enseigne à Montréal</span>
+              <span className="text-[#32B8F1]">{"leader de l'enseigne à Montréal"}</span>
             </h1>
 
             {/* CTA Button */}
             <div className="flex justify-center">
-              <Link
-                href="#contact"
+              <button
+                onClick={() => setShowContactModal(true)}
                 className="inline-flex items-center space-x-2 text-sm sm:text-base font-medium transition-all duration-300 rounded-lg
                   sm:bg-[#FC32A2] sm:text-white sm:px-5 sm:py-2.5 sm:hover:bg-[#e91e63]
                   bg-white/90 text-gray-900 px-4 py-2 hover:bg-white sm:hover:bg-[#e91e63]"
               >
                 <span>Demander un devis gratuit</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Link>
+              </button>
             </div>
 
             {/* Service Navigation Tabs */}
@@ -164,7 +166,7 @@ const ServicesPage = () => {
                 <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-0.5">30+</div>
                 <div className="text-gray-400 text-xs sm:text-sm">
                   <span className="inline sm:hidden">Ans exp.</span>
-                  <span className="hidden sm:inline">Années d&apos;expérience</span>
+                  <span className="hidden sm:inline">{"Années d'expérience"}</span>
                 </div>
               </div>
               <div className="text-center p-2 sm:p-3 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
@@ -258,15 +260,15 @@ const ServicesPage = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <Link
-                    href="#contact"
+                  <button
+                    onClick={() => setShowContactModal(true)}
                     className={`inline-flex items-center justify-center w-full px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium text-white transition-all duration-300 ${
                       service.color
                     } hover:opacity-90 hover:shadow-lg`}
                   >
                     Demander un devis
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-                  </Link>
+                  </button>
                 </div>
               );
             })}
@@ -290,7 +292,7 @@ const ServicesPage = () => {
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
-                Notre engagement envers l&apos;excellence se reflète dans notre taux de satisfaction client exceptionnel.
+                {"Notre engagement envers l'excellence se reflète dans notre taux de satisfaction client exceptionnel."}
               </p>
             </div>
 
@@ -302,11 +304,11 @@ const ServicesPage = () => {
                 </div>
                 <div>
                   <div className="text-xl sm:text-2xl font-bold text-gray-900">30+ ans</div>
-                  <div className="text-sm sm:text-base text-gray-600">D&apos;expérience</div>
+                  <div className="text-sm sm:text-base text-gray-600">{"D'expérience"}</div>
                 </div>
               </div>
               <p className="text-sm sm:text-base text-gray-600">
-                Trois décennies d&apos;expertise dans la conception et la fabrication d&apos;enseignes de qualité.
+                {"Trois décennies d'expertise dans la conception et la fabrication d'enseignes de qualité."}
               </p>
             </div>
 
@@ -329,6 +331,12 @@ const ServicesPage = () => {
         </div>
       </section>
     </div>
+    {/* Contact Modal */}
+    <ContactModal
+      isOpen={showContactModal}
+      onClose={() => setShowContactModal(false)}
+    />
+    </>
   );
 };
 

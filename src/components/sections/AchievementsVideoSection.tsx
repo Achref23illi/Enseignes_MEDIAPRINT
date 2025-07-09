@@ -1,9 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Award, Users, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import ContactModal from '@/components/common/ContactModal';
 
 const AchievementsVideoSection = () => {
+  const [showContactModal, setShowContactModal] = useState(false);
 
   const achievements = [
     {
@@ -63,10 +66,10 @@ const AchievementsVideoSection = () => {
             Nos réalisations
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Trois décennies d&apos;excellence
+            {"Trois décennies d'excellence"}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Découvrez notre parcours de transformation du paysage commercial montréalais avec des solutions d&apos;enseignes haut de gamme, projet après projet.
+            {"Découvrez notre parcours de transformation du paysage commercial montréalais avec des solutions d'enseignes haut de gamme, projet après projet."}
           </p>
         </div>
 
@@ -92,7 +95,7 @@ const AchievementsVideoSection = () => {
                   <span className="text-white text-sm font-medium">Qualité HD</span>
                 </div>
                 <div className="absolute top-4 right-4 rounded-lg px-3 py-2" style={{backgroundColor: '#32B8F1'}}>
-                  <span className="text-white text-sm font-medium">● Présentation de l&apos;entreprise</span>
+                  <span className="text-white text-sm font-medium">{"● Présentation de l'entreprise"}</span>
                 </div>
               </div>
 
@@ -101,7 +104,7 @@ const AchievementsVideoSection = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="w-2 h-2 rounded-full" style={{backgroundColor: '#32B8F1'}}></div>
-                    <span className="text-white text-sm font-medium">Enseignes MEDIAPRINT - 30 ans d&apos;excellence</span>
+                    <span className="text-white text-sm font-medium">{"Enseignes MEDIAPRINT - 30 ans d'excellence"}</span>
                   </div>
                   <div className="text-gray-400 text-sm">Vidéo de présentation</div>
                 </div>
@@ -149,7 +152,7 @@ const AchievementsVideoSection = () => {
               Ce que disent nos clients
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Avis réels d&apos;entreprises montréalaises qui nous confient leurs besoins en enseignes
+              {"Avis réels d'entreprises montréalaises qui nous confient leurs besoins en enseignes"}
             </p>
           </div>
 
@@ -186,20 +189,35 @@ const AchievementsVideoSection = () => {
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 lg:p-12 text-white">
             <h3 className="text-3xl font-bold mb-4">Prêt à rejoindre nos histoires de succès ?</h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Créons quelque chose d&apos;exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd&apos;hui.
+              {"Créons quelque chose d'exceptionnel pour votre entreprise. Obtenez votre consultation gratuite dès aujourd'hui."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{backgroundColor: '#FC32A2'}} onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e91e63')} onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FC32A2')}>
+              <button 
+                onClick={() => setShowContactModal(true)}
+                className="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105" 
+                style={{backgroundColor: '#FC32A2'}} 
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#e91e63')} 
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FC32A2')}
+              >
                 Obtenir un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </button>
-              <button className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300">
+              <Link
+                href="/achievements"
+                className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+              >
                 Voir le portfolio
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+      />
     </section>
   );
 };
